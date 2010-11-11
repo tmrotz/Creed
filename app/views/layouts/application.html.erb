@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creed</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+    
+  <div class="outer_div">
+    <div>
+      <h1>
+        <i>
+          Creed
+        </i>
+      </h1>
+    </div>
+
+    <div class="inner_div">
+      <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
+        
+      <%= yield %>
+        
+      <%= debug params %>
+    </div>
+
+  </div>
+
+</body>
+</html>

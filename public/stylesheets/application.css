@@ -1,0 +1,36 @@
+/* 
+    Document   : application
+    Created on : Oct 14, 2010, 10:21:15 PM
+    Author     : Travis
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.centered {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.outer_div {
+   background: #F8F8F8;
+   text-align: center;
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 1em 2em 2em 2em;
+}
+
+.inner_div {
+   margin-left: auto;
+   margin-right: auto;
+}
+

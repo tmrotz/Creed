@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First:</b>
+  <%=h @user.first %>
+</p>
+
+<p>
+  <b>Last:</b>
+  <%=h @user.last %>
+</p>
+
+<p>
+  <b>Id:</b>
+  <%=h @user.id %>
+</p>
+
+<p>
+  <b>Hashed password:</b>
+  <%=h @user.hashed_password %>
+</p>
+
+<p>
+  <b>Salt:</b>
+  <%=h @user.salt %>
+</p>
+
+<p>
+  <b>Paid:</b>
+  <%=h @user.paid %>
+</p>
+
+<p>
+  <b>Votes:</b>
+  <%=h @user.votes %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
