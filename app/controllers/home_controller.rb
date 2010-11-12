@@ -4,8 +4,6 @@ class HomeController < ApplicationController
   def index
   end
 
-  private
-
 # "Create" a login, aka "log the user in"
   def login
 #    unless session[:current_user_id].nil?
