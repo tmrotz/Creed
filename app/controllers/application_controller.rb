@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Please Log In"
       redirect_to :root
     else
-      flash[:notice] = "You Are #{current_user}"
+      flash[:notice] = "You Are #{current_user.username}"
     end
   end
 
