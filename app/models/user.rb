@@ -33,6 +33,22 @@ class User < ActiveRecord::Base
     user
   end
 
+  def paypal_url
+    
+    values = {
+      :business => 'seller_1287031804_biz@gmail.com',
+      :cmd => '_xclick',
+      :upload => 1,
+      :return => 'http://www.creed.trconsulting.railsplayground.net/',
+      :amount => 10,
+      :item_name => "Votes",
+      :undefined_quantity => 1
+    }
+
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?"+values.map {|k,v| "#{k}=#{v}" }.join("&")
+    
+  end
+
   private
 
   def password_non_blank

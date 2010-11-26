@@ -1,5 +1,7 @@
 Creed::Application.routes.draw do
 
+  get "payment_notification/create"
+
   get "/home/login" => "home#login"
   post "/home/login" => "home#login"
 

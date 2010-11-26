@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101108040910) do
+ActiveRecord::Schema.define(:version => 20101126050607) do
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.integer  "cart_id"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "plans", :force => true do |t|
     t.datetime "created_at"
