@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
       :return => 'http://www.creed.trconsulting.railsplayground.net/',
       :amount => 10,
       :item_name => "Votes",
-      :undefined_quantity => 1
+      :undefined_quantity => 1,
+      :nofity_url => 'http://www.creed.trconsulting.railsplayground.net/payment_notification'
     }
 
     "https://www.sandbox.paypal.com/cgi-bin/webscr?"+values.map {|k,v| "#{k}=#{v}" }.join("&")
