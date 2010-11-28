@@ -1,7 +1,6 @@
 class FixPaymentNotification < ActiveRecord::Migration
   def self.up
     remove_column :payment_notifications, :params
-    remove_column :payment_notifications, :invoice
     remove_column :payment_notifications, :cart_id
     remove_column :payment_notifications, :transaction_id
 
@@ -16,7 +15,6 @@ class FixPaymentNotification < ActiveRecord::Migration
 
   def self.down
     add_column :payment_notifications, :params, :string
-    add_column :payment_notifications, :invoice, :string
     add_column :payment_notifications, :cart_id, :integer
     add_column :payment_notifications, :transaction_id, :string
 
