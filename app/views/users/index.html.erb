@@ -1,9 +1,6 @@
 <h1>Listing users</h1>
 
-<%#*<input type="image" src="images/buy_now_paypal.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />%>
-
-
-<%= link_to "Buy Vote", current_user.paypal_url  %>
+<%= link_to image_tag("buy_now_paypal.gif", :border => 0), current_user.paypal_url  %>
 
 <table class="centered">
   <tr>
