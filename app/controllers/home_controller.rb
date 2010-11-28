@@ -16,8 +16,6 @@ class HomeController < ApplicationController
       # subsequent requests
       session[:current_user_id] = user.id
       flash[:notice] = "Successfully Logged In"
-    else
-      flash[:notice] = "No Such User"
     end
     redirect_to :root
   end

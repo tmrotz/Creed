@@ -20,6 +20,8 @@
     <div class="inner_div">
       <% if flash[:notice] %>
         <p class="notice"><%=h flash[:notice] %></p>
+      <% else %>
+        <p class="notice">No User Logged In</p>
       <% end %>
         
       <%= yield %>
