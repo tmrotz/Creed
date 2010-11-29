@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def paypal_url
+  def paypal_encrypted
     
     values = {
       :business => 'seller_1287031804_biz@gmail.com',
@@ -43,12 +43,24 @@ class User < ActiveRecord::Base
       :amount => 10,
       :item_name => "Votes",
       :undefined_quantity => 1,
-      :nofity_url => 'http://www.creed.trconsulting.railsplayground.net/payment_notification'
+      :nofity_url => 'http://www.creed.trconsulting.railsplayground.net/payment_notification',
+      :cert_id => "Q3MGNR3UNZJRY",
+      :secret => "b2g36f9rty8jk1g2f6"
     }
 
-    "https://www.sandbox.paypal.com/cgi-bin/webscr?"+values.map {|k,v| "#{k}=#{v}" }.join("&")
-    
+    encrypt_for_paypal(values)
+
   end
+
+  PAYPAL_CERT_PEM = File.read("#{Rails.root}/certs/paypal_cert.pem")
+  APP_CERT_PEM = File.read("#{Rails.root}/certs/app_cert.pem")
+  APP_KEY_PEM = File.read("#{Rails.root}/certs/app_key.pem")
+
+  def encrypt_for_paypal(values)
+    signed = OpenSSL::PKCS7::sign(OpenSSL::X509::Certificate.new(APP_CERT_PEM), OpenSSL::PKey::RSA.new(APP_KEY_PEM, ''), values.map { |k, v| "#{k}=#{v}" }.join("\n"), [], OpenSSL::PKCS7::BINARY)
+    OpenSSL::PKCS7::encrypt([OpenSSL::X509::Certificate.new(PAYPAL_CERT_PEM)], signed.to_der, OpenSSL::Cipher::Cipher::new("DES3"), OpenSSL::PKCS7::BINARY).to_s.gsub("\n", "")
+  end
+
 
   private
 

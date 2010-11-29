@@ -8,7 +8,7 @@ Creed::Application.routes.draw do
   get "/home/logout" => "home#logout"
   post "/home/logout" => "home#logout"
 
-  resources :users
+  resources :users, :plans
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
