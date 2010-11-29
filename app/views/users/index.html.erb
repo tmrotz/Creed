@@ -2,8 +2,8 @@
 
 <% form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
   <%= hidden_field_tag :cmd, "_s-xclick" %>
-  <%= hidden_field_tag :encrypted, current_user.paypal_encrypted %>
-  <p><%= submit_tag image_tag("buy_now_paypal.gif", :border => 0) %></p>
+  <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(payment_notification_url(:secret => "b2g36f9rty8jk1g2f6")) %>
+  <p><%= image_submit_tag("buy_now_paypal.gif", :border => 0) %></p>
 <% end %>
 
 <table class="centered">
