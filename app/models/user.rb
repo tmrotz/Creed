@@ -35,8 +35,6 @@ class User < ActiveRecord::Base
 
   def paypal_encrypted
 
-    payment_notifications_url += "&secret=b2g36f9rty8jk1g2f6"
-
     values = {
       :business => 'seller_1287031804_biz@gmail.com',
       :cmd => '_xclick',
@@ -45,7 +43,7 @@ class User < ActiveRecord::Base
       :amount => 10,
       :item_name => "Votes",
       :undefined_quantity => 1,
-      :nofity_url => payment_notifications_url,
+      :nofity_url => "http://www.creed.trconsulting.railsplayground.net/payment_notification?secret=b2g36f9rty8jk1g2f6",
       :cert_id => "Q3MGNR3UNZJRY"
     }
     
