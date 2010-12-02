@@ -16,7 +16,7 @@ class PaymentNotificationController < ApplicationController
 
     end
     
-    PaymentNotification.create!(:status => params[:payment_status], :txn_type => params[:txn_type], :txn_id => params[:txn_id], :payer_email => params[:payer_email], :memo => params[:memo], :payment_date => params[:payment_date], :payment_type => params[:payment_type], :quantity => params[:quantity])
+    PaymentNotification.create!(:status => params[:payment_status], :txn_id => params[:txn_id], :payer_email => params[:payer_email], :memo => params[:memo], :payment_date => params[:payment_date], :payment_type => params[:payment_type], :quantity => params[:quantity])
     render :nothing => true
     
   end
