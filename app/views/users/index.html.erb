@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
 
-<% form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
+<%= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
   <%= hidden_field_tag :cmd, "_s-xclick" %>
   <%= hidden_field_tag :encrypted, current_user.paypal_encrypted %>
   <p><%= image_submit_tag("buy_now_paypal.gif", :border => 0) %></p>
