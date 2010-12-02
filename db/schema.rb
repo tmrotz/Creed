@@ -10,14 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101129050912) do
+ActiveRecord::Schema.define(:version => 20101202214319) do
 
   create_table "payment_notifications", :force => true do |t|
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "txn_id"
-    t.string   "txn_type"
     t.string   "payer_email"
     t.string   "memo"
     t.string   "payment_date"
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20101129050912) do
     t.datetime "updated_at"
     t.string   "username"
     t.integer  "votes"
+    t.string   "email"
   end
 
 end
