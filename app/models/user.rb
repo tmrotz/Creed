@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
       :return => 'http://www.creed.trconsulting.railsplayground.net/',
       :amount => 10,
       :item_name => "Votes",
+      :item_number => User.id,
       :undefined_quantity => 1,
       :nofity_url => "http://www.creed.trconsulting.railsplayground.net/payment_notification",
       :cert_id => "Q3MGNR3UNZJRY"
