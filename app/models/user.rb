@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
       :amount => 10,
       :item_name => "Votes",
       :undefined_quantity => 1,
-      :nofity_url => "http://www.creed.trconsulting.railsplayground.net/payment_notification?secret=b2g36f9rty8jk1g2f6",
+      :nofity_url => "http://www.creed.trconsulting.railsplayground.net/payment_notification",
       :cert_id => "Q3MGNR3UNZJRY"
     }
     
