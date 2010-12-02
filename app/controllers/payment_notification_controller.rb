@@ -6,7 +6,7 @@ class PaymentNotificationController < ApplicationController
 
     if params[:payment_status] == "Completed"
 
-      user_id = params[:item_number]
+      user_id = params[:item_number].to_i
       if User.find(user_id).paid == true
         # WHY WOULD YOU DO THIS AGAIN?!?!?!
       else
