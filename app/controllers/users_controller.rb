@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Application
   before_filter :authorize, :except => [:new, :create]
 
   # GET /users

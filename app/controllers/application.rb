@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+class Application < ActionController::Base
 
   protect_from_forgery
 

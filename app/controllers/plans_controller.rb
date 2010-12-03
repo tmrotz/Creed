@@ -1,4 +1,4 @@
-class PlansController < ApplicationController
+class PlansController < Application
 
 before_filter :authorize
 

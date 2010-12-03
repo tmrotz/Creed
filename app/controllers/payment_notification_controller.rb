@@ -1,4 +1,4 @@
-class PaymentNotificationController < ApplicationController
+class PaymentNotificationController < Application
 
   protect_from_forgery :except => [:create]
 
