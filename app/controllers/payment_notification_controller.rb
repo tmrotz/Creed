@@ -4,11 +4,6 @@ class PaymentNotificationController < Application
 
   def create
 
-    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
-    debugger params[:secret]
-    puts params[:secret]
-    puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
-
 #    if params[:payment_status] == "Completed"
 #
 #      user_id = params[:item_number].to_i
