@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def paypal_encrypted(notify_url)
+  def paypal_encrypted
 
     values = {
       :business => 'seller_1287031804_biz@gmail.com',
@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
       :item_name => "Votes",
       :item_number => self.id,
       :undefined_quantity => 1,
-      :nofity_url => notify_url,
       :cert_id => "Q3MGNR3UNZJRY"
     }
     
