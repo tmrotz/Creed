@@ -8,26 +8,35 @@
     <p class="notice">No User Logged In</p>
   <% end %>
 
-  <p id="notice"><%= notice %></p>
-
   <p>
     <b>Title:</b>
     <%=h @plan.title %>
   </p>
 
   <p>
-    <b>Body:</b>
-    <%=h @plan.body %>
+    <b>Subtitle:</b>
+    <%=h @plan.subtitle %>
   </p>
 
   <p>
-    <b>Conclusion:</b>
-    <%=h @plan.conclusion %>
+    <b>Target:</b>
+    <%=h @plan.target_title %>
+    <%=h @plan.target_body %>
   </p>
 
   <p>
-    <b>Id:</b>
-    <%=h @plan.id %>
+    <b>Financial:</b>
+    <%=h @plan.financial %>
+  </p>
+
+  <p>
+    <b>Status:</b>
+    <%=h @plan.status %>
+  </p>
+
+  <p>
+    <b>Action:</b>
+    <%=h @plan.action %>
   </p>
 
 

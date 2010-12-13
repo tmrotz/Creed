@@ -8,34 +8,20 @@
     <p class="notice">No User Logged In</p>
   <% end %>
 
-  <h1>Listing plans</h1>
-
-  <table class="centered">
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Conclusion</th>
-      <th>Id</th>
-    </tr>
 
   <% @plans.each do |plan| %>
-    <tr>
-      <td><%=h plan.title %></td>
-      <td><%=h plan.body %></td>
-      <td><%=h plan.conclusion %></td>
-      <td><%=h plan.id %></td>
-      <td><%= link_to 'Show', plan %></td>
-      <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-      <td><%= link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+    <p><%=h plan.title %></p>
+    <p><%=h plan.subtitle %></p>
+    <p><%=h plan.target_title %></p>
+    <p><%=h plan.target_body %></p>
+    <p><%=h plan.financial %></p>
+    <p><%=h plan.status %></p>
+    <p><%=h plan.action %></p>
   <% end %>
-  </table>
+    
 
   <br />
 
-  <%= link_to 'New Plan', new_plan_path %>
-  <br /><br />
-  <%= link_to 'Home', :root %>
 
   <p class="rt-readon-surround">
     <a class="readon" href="/" >

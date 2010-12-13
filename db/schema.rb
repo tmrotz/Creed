@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101202214319) do
+ActiveRecord::Schema.define(:version => 20101213221307) do
 
   create_table "payment_notifications", :force => true do |t|
     t.string   "status"
@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(:version => 20101202214319) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.text     "body"
-    t.text     "conclusion"
+    t.string   "subtitle"
+    t.string   "target_title"
+    t.string   "target_body"
+    t.string   "financial"
+    t.string   "status"
+    t.string   "action"
   end
 
   create_table "sessions", :force => true do |t|
