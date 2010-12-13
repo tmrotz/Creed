@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213221307) do
+ActiveRecord::Schema.define(:version => 20101213231852) do
 
   create_table "payment_notifications", :force => true do |t|
     t.string   "status"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20101213221307) do
     t.string   "title"
     t.string   "subtitle"
     t.string   "target_title"
-    t.string   "target_body"
-    t.string   "financial"
-    t.string   "status"
+    t.string   "target_body",  :limit => 2000
+    t.string   "financial",    :limit => 2000
+    t.string   "status",       :limit => 1000
     t.string   "action"
   end
 
