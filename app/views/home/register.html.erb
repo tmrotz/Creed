@@ -1,0 +1,44 @@
+
+<div class="module-title"><h2 class="title"><span>Login or Register</span></h2></div>
+<div class="module-inner">
+
+  <% if flash[:notice] %>
+    <p class="notice"><%=h flash[:notice] %></p>
+  <% else %>
+    <p class="notice">No User Logged In</p>
+  <% end %>
+
+    
+    <div>
+    <div style="float:left; width:50%;">
+      <%= form_tag home_login_path do %>
+      <fieldset>
+        <div>
+          <label for="name">Name:</label>
+          <%= text_field_tag :username, params[:username] %>
+        </div>
+        <div style ="margin-top: 2%;">
+          <label for="password">Password:</label>
+          <%= password_field_tag :password, params[:password] %>
+        </div>
+        <div style="margin-top: 2%;">
+          <%= submit_tag "Login" %>
+        </div>
+      </fieldset>
+      <% end %>
+    </div>
+    <div style="float:left; width:50%;">
+      <%= render 'users/form' %>
+    </div>
+  </div>
+
+  <p class="rt-readon-surround">
+    <a class="readon" href="/" >
+      <span>Read More...</span>
+    </a>
+  </p>
+
+
+
+</div>
+

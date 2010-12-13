@@ -1,11 +1,11 @@
 class HomeController < Application
-  before_filter :authorize, :except => [:index, :login]
+  before_filter :authorize, :except => [:index, :register, :login]
 
   def index
   end
 
-  def test
-    
+  def register
+    @user = User.new
   end
 
   # "Create" a login, aka "log the user in"
@@ -17,7 +17,7 @@ class HomeController < Application
       session[:current_user_id] = user.id
       flash[:notice] = "Successfully Logged In"
     end
-    redirect_to :root
+    redirect_to users_url
   end
 
   # "Delete" a login, aka "log the user out"

@@ -661,7 +661,7 @@ body.backgroundlevel-low {background: #515355 url(../images/bg-low.png) 50% 0 re
 .bodylevel-low #rt-main-divider {background: #fff;}
 #rt-breadcrumbs {background: #e7e7e7 url(../images/copyright-bg.png) 50% 50% repeat-x;}
 #rt-main-surround {background: #fff;}
-.rt-main-inner {background: url(../images/main-inner.png) 50% 0 repeat-x;}
+/*.rt-main-inner {background: url(../images/main-inner.png) 50% 0 repeat-x;}*/
 #rt-main-surround ul.menu li {background: #e9e9e9 url(../images/sidemenu-bg.png) 50% 0 repeat-x;border-top: 1px solid #d4d4d4;border-left: 1px solid #d4d4d4;border-bottom: 1px solid #fff;border-right: 1px solid #fff;}
 #rt-main-surround ul.menu li.active, #rt-main-surround ul.menu li:hover {background: #e1e1e1 url(../images/sidemenu-bg-active.png) 50% 0 repeat-x;}
 #rt-main-surround ul.menu li a, #rt-main-surround ul.menu li .separator, #rt-main-surround ul.menu li .item {background: url(../images/arrows.png) 10px 10px no-repeat;}
@@ -1060,7 +1060,7 @@ pre {font-style:italic;overflow: auto;padding: 10px;margin-bottom: 15px;backgrou
 .download {color: #666666;background-image: url(../images/download.png);background-color: #FCFCFC;border-bottom: 1px solid #D3D3D3;border-right: 1px solid #D3D3D3;}
 .media {color: #8D79A9;background-image: url(../images/media.png);background-color: #FBF9FD;border-bottom: 1px solid #DBE1E6;border-right: 1px solid #DBE1E6;}
 .note {color: #B76F38;background-image: url(../images/note.png);background-color: #FFFAF6;border-bottom: 1px solid #E6DAD2;border-right: 1px solid #E6DAD2;}
-.notice {color: #6187B3;background-color: #FAFCFD;border-bottom: 1px solid #C7CDDA;border-right: 1px solid #C7CDDA;}
+.notice {color: red;background-color: #FAFCFD;border-bottom: 1px solid #C7CDDA;border-right: 1px solid #C7CDDA;}
 .quote {color: #727272;background-image: url(../images/quote.png);background-color: #F3F3F3;border-bottom: 1px solid #D4D4D4;border-right: 1px solid #D4D4D4;}
 .quote-l {display: block;padding: 8px 10px 0px 36px;margin: 15px 0;}
 .quote-r {display: block;padding: 0 10px 0 0;}

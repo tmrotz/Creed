@@ -33,17 +33,17 @@ class User < ActiveRecord::Base
     user
   end
 
-  def paypal_encrypted
+  def paypal_encrypted(amount, item_name, var_quan)
 
     values = {
       :business => 'seller_1287031804_biz@gmail.com',
       :cmd => '_xclick',
       :upload => 1,
       :return => 'http://www.creed.trconsulting.railsplayground.net/',
-      :amount => 10,
-      :item_name => "Votes",
+      :amount => amount,
+      :item_name => item_name,
       :item_number => self.id,
-      :undefined_quantity => 1,
+      :undefined_quantity => var_quan,
       :cert_id => "Q3MGNR3UNZJRY"
     }
     

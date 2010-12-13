@@ -63,16 +63,15 @@
                   <span>Plans<em>Something</em></span>
                 </a>
               </li>
-              <li class="" >
-                <a class="orphan item subtext" href="/"  >
-                  <span>???<em>???</em></span>
-                </a>
-              </li>
-              <li class="" >
-                <a class="orphan item subtext" href="/"  >
-                  <span>???<em>???</em></span>
-                </a>
-              </li>
+              <% if logged_in? %>
+                <li style="float:right; margin-top: 3%; height: 30px;">
+                  <%= link_to "Logout", home_logout_path %>
+                </li>
+              <% else %>
+                <li style="float:right; margin-top: 3%; height: 30px;">
+                  <%= link_to "Login", home_login_path %>
+                </li>
+              <% end %>
               
             </ul>
           </div>
