@@ -4,12 +4,12 @@ class HomeController < Application
   def index
   end
 
-# "Create" a login, aka "log the user in"
+  def test
+    
+  end
+
+  # "Create" a login, aka "log the user in"
   def login
-#    unless session[:current_user_id].nil?
-#      flash[:notice] = "MOO"
-#      redirect_to :root and return
-#    end
     user = User.authenticate(params[:username], params[:password])
     unless user.nil?
       # Save the user id in the session so it can be used in

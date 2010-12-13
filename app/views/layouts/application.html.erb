@@ -1,35 +1,187 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Creed</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" >
+  
+  <head>
+    <%= stylesheet_link_tag 'visibleequity' %>
+    <%= javascript_include_tag 'visibleequity' %>
+    <%= csrf_meta_tag %>
+    <title>Creed Business Plans</title>
     
-  <div class="outer_div">
-    <div>
-      <h1>
-        <i>
-          Creed
-        </i>
-      </h1>
+    <style type="text/css">
+      <!--
+      #rt-main-surround ul.menu li.active > a, #rt-main-surround ul.menu li.active > .separator, #rt-main-surround ul.menu li.active > .item, h2.title span, #rt-submenu ul.menu li.active > .item, #rt-submenu .nopill ul.menu li > .item:hover, .menutop li.root:hover > .item, .menutop li.root.f-mainparent-itemfocus > .item, .menu-type-splitmenu .menutop li:hover .item {color:#285B90;}
+      a, body .menutop .nolink, #rt-main-surround ul.menu a:hover, #rt-main-surround ul.menu .separator:hover, #rt-main-surround ul.menu .item:hover {color:#285B90;}
+      -->
+    </style>
+
+
+    <!--<script type="text/javascript">
+      var rokboxPath = '/plugins/system/rokbox/';
+			window.addEvent('domready', function() {
+				var modules = ['rt-block'];
+				var header = ['h3','h2','h1'];
+				GantryBuildSpans(modules, header);
+			});
+
+      InputsExclusion.push('.content_vote')
+      window.addEvent('domready', function() {new GantryPill('ul.menutop', {duration: 250, transition: Fx.Transitions.Sine.easeOut, color: false})});
+      window.addEvent('domready', function() {new GantryPill('#rt-submenu2', {duration: 250, transition: Fx.Transitions.Sine.easeOut, color: '#285B90'})});
+    </script>-->
+
+  </head>
+
+
+  <body  class="backgroundlevel-low bodylevel-high cssstyle-style3 showcase-color1 articletitle-color1 font-family-helvetica font-size-is-default menu-type-splitmenu col12 ">
+    <div class="rt-container">
+      <div id="rt-drawer">
+        <div class="clear"></div>
+      </div>
+
+      <div class="rt-surround-top"></div>
+      <div class="rt-surround">
+        <div id="rt-header">
+          <div class="rt-grid-3 rt-alpha">
+            <div class="rt-block">
+              <a href="/" id="rt-logo"></a>
+            </div>
+          </div>
+          <div class="rt-grid-9 rt-omega">
+            <ul class="menutop level1" >
+              <li class="item1 active" >
+                <a class="orphan item" href="/"  >
+                  <span>Home</span>
+                </a>
+              </li>
+              <li class="item53" >
+                <a class="orphan item subtext" href="/users"  >
+                  <span>Users<em>Fresh from the Lab</em></span>
+                </a>
+              </li>
+              <li class="item170 parent" >
+                <a class="orphan item subtext" href="/plans"  >
+                  <span>Plans<em>Something</em></span>
+                </a>
+              </li>
+              <li class="item168" >
+                <a class="orphan item subtext" href="/"  >
+                  <span>???<em>???</em></span>
+                </a>
+              </li>
+              <li class="item27" >
+                <a class="orphan item subtext" href="/"  >
+                  <span>???<em>???</em></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="rt-showcase">
+          <div class="rt-header-spacer"></div>
+          <div class="clear"></div>
+        </div>
+        <div id="rt-main-divider"></div>
+        <div id="rt-main-surround">
+          <div id="rt-feature">
+            <div class="rt-grid-12 rt-alpha rt-omega">
+              <div class="ribbon1">
+                <div class="rt-block">
+                  <div class="module-content">
+                    <div class="module-title"><h2 class="title">Welcome to Creed</h2></div>
+                    <div class="clear"></div>
+                    <div class="module-inner">
+                      <div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">
+                        <div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">
+                          <h1 style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; color: #666666; text-align: left;"><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;">A Message</span></h1>
+                          <p><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;"><br /></span></p>
+                        </div>
+                      </div>
+                      <ul style="padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 15px; outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; list-style-image: none; margin: 0px; border: 0px initial initial;">
+                        <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
+                          <p><a href="/" title="Bullet Point" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Bullet Point</span></span></a></p>
+                        </li>
+                        <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
+                          <p><a href="/" title="Link 1" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 1</span></span></a></p>
+                        </li>
+                        <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
+                          <p><a href="/" target="_self" title="Link 1"><span style="outline-style: none; background-color: transparent; padding: 0px; margin: 0px;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 2</span></span></span></a></p>
+                        </li>
+                      </ul>
+                      <p></p>
+                      <% if flash[:notice] %>
+                        <p class="notice"><%=h flash[:notice] %></p>
+                      <% else %>
+                        <p class="notice">No User Logged In</p>
+                      <% end %>
+                      <%= yield %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="rt-breadcrumbs">
+            <div class="rt-breadcrumb-surround">
+              <a href="/" id="breadcrumbs-home"></a>
+              <span class="breadcrumbs pathway">
+              </span>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="rt-main" class="mb12">
+            <div class="rt-main-inner">
+              <div class="rt-grid-12 ">
+                <div class="rt-block">
+                  <div id="rt-mainbody">
+                    <div class="rt-joomla ">
+                      <div class="rt-blog">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <div id="rt-footer">
+            <div class="rt-grid-12 rt-alpha rt-omega">
+              <div class="_menu">
+                <div class="rt-block">
+                  <div class="module-content">
+                    <div class="module-title"><h2 class="title">A Menu</h2></div>
+                    <div class="clear"></div>
+                    <div class="module-inner">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr ><td><a href="/" class="mainlevel" >Link 3</a></td></tr>
+                        <tr ><td><a href="/" class="mainlevel" >Link 4</a></td></tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div id="rt-copyright">
+          <div class="rt-grid-12 rt-alpha rt-omega">
+            <div class="clear"></div>
+            <div class="rt-block">
+              <div class="clear"></div>
+              <span class="copytext">Creed, 2010</span>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="rt-surround-bottom"></div>
+      <div id="rt-debug">
+        <div class="rt-grid-12 rt-alpha rt-omega">
+          <a href="#" id="gantry-totop"><span>Scroll To Top</span></a>
+        </div>
+        <div class="clear"></div>
+      </div>
     </div>
-
-    <div class="inner_div">
-      <% if flash[:notice] %>
-        <p class="notice"><%=h flash[:notice] %></p>
-      <% else %>
-        <p class="notice">No User Logged In</p>
-      <% end %>
-        
-      <%= yield %>
-        
-      <%= debug params %>
-    </div>
-
-  </div>
-
-</body>
+  </body>
 </html>
