@@ -1,39 +1,76 @@
-<h1>Listing users</h1>
+<div class="module-title"><h2 class="title"><span>Welcome to Creed</span></h2></div>
+<div class="clear"></div>
+<div class="module-inner">
+  <div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">
+    <div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">
+      <h1 style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; color: #666666; text-align: left;"><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;">A Message</span></h1>
+      <p><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;"><br /></span></p>
+    </div>
+  </div>
+  <ul style="padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 15px; outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; list-style-image: none; margin: 0px; border: 0px initial initial;">
+    <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
+      <p><a href="/" title="Bullet Point" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Bullet Point</span></span></a></p>
+    </li>
+    <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
+      <p><a href="/" title="Link 1" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 1</span></span></a></p>
+    </li>
+    <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
+      <p><a href="/" target="_self" title="Link 1"><span style="outline-style: none; background-color: transparent; padding: 0px; margin: 0px;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 2</span></span></span></a></p>
+    </li>
+  </ul>
 
-<%= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
-  <%= hidden_field_tag :cmd, "_s-xclick" %>
-  <%= hidden_field_tag :encrypted, current_user.paypal_encrypted %>
-  <p><%= image_submit_tag("buy_now_paypal.gif", :border => 0) %></p>
-<% end %>
+  <% if flash[:notice] %>
+    <p class="notice"><%=h flash[:notice] %></p>
+  <% else %>
+    <p class="notice">No User Logged In</p>
+  <% end %>
 
-<table class="centered">
-  <tr>
-    <th>First</th>
-    <th>Last</th>
-    <th>Id</th>
-    <th>Paid</th>
-    <th>Votes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <h1>Listing users</h1>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%=h user.first %></td>
-    <td><%=h user.last %></td>
-    <td><%=h user.id %></td>
-    <td><%=h user.paid %></td>
-    <td><%=h user.votes %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <%= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
+    <%= hidden_field_tag :cmd, "_s-xclick" %>
+    <%= hidden_field_tag :encrypted, current_user.paypal_encrypted %>
+    <p><%= image_submit_tag("buy_now_paypal.gif", :border => 0) %></p>
+  <% end %>
 
-<br />
+  <table class="centered">
+    <tr>
+      <th>First</th>
+      <th>Last</th>
+      <th>Id</th>
+      <th>Paid</th>
+      <th>Votes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<%= link_to 'New User', new_user_path %>
-<br /><br />
-<%= link_to 'Home', :root %>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%=h user.first %></td>
+      <td><%=h user.last %></td>
+      <td><%=h user.id %></td>
+      <td><%=h user.paid %></td>
+      <td><%=h user.votes %></td>
+      <td><%= link_to 'Show', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New User', new_user_path %>
+  <br /><br />
+  <%= link_to 'Home', :root %>
+
+  <p class="rt-readon-surround">
+    <a class="readon" href="/" >
+      <span>Read More...</span>
+    </a>
+  </p>
+
+</div>
+
+

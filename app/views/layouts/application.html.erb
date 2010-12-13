@@ -47,31 +47,33 @@
           </div>
           <div class="rt-grid-9 rt-omega">
             <ul class="menutop level1" >
-              <li class="item1 active" >
+
+              <li class="<% if controller.controller_name == 'home' %>active<% else %><% end %>" >
                 <a class="orphan item" href="/"  >
                   <span>Home</span>
                 </a>
               </li>
-              <li class="item53" >
+              <li class="<% if controller.controller_name == 'users' %>active<% else %><% end %>" >
                 <a class="orphan item subtext" href="/users"  >
                   <span>Users<em>Fresh from the Lab</em></span>
                 </a>
               </li>
-              <li class="item170 parent" >
+              <li class="<% if controller.controller_name == 'plans' %>active<% else %><% end %>" >
                 <a class="orphan item subtext" href="/plans"  >
                   <span>Plans<em>Something</em></span>
                 </a>
               </li>
-              <li class="item168" >
+              <li class="" >
                 <a class="orphan item subtext" href="/"  >
                   <span>???<em>???</em></span>
                 </a>
               </li>
-              <li class="item27" >
+              <li class="" >
                 <a class="orphan item subtext" href="/"  >
                   <span>???<em>???</em></span>
                 </a>
               </li>
+              
             </ul>
           </div>
           <div class="clear"></div>
@@ -82,53 +84,36 @@
         </div>
         <div id="rt-main-divider"></div>
         <div id="rt-main-surround">
-          <div id="rt-feature">
-            <div class="rt-grid-12 rt-alpha rt-omega">
-              <div class="ribbon1">
-                <div class="rt-block">
-                  <div class="module-content">
-                    <div class="module-title"><h2 class="title">Welcome to Creed</h2></div>
-                    <div class="clear"></div>
-                    <div class="module-inner">
-                      <div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">
-                        <div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">
-                          <h1 style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; color: #666666; text-align: left;"><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;">A Message</span></h1>
-                          <p><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;"><br /></span></p>
-                        </div>
-                      </div>
-                      <ul style="padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 15px; outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; list-style-image: none; margin: 0px; border: 0px initial initial;">
-                        <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
-                          <p><a href="/" title="Bullet Point" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Bullet Point</span></span></a></p>
-                        </li>
-                        <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
-                          <p><a href="/" title="Link 1" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 1</span></span></a></p>
-                        </li>
-                        <li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">
-                          <p><a href="/" target="_self" title="Link 1"><span style="outline-style: none; background-color: transparent; padding: 0px; margin: 0px;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 2</span></span></span></a></p>
-                        </li>
-                      </ul>
-                      <p></p>
-                      <% if flash[:notice] %>
-                        <p class="notice"><%=h flash[:notice] %></p>
-                      <% else %>
-                        <p class="notice">No User Logged In</p>
-                      <% end %>
-                      <%= yield %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="clear"></div>
-          </div>
-          <div id="rt-breadcrumbs">
+
+
+          <!-- rt-breadcrumbs -->
+          <!--<div id="rt-breadcrumbs">
             <div class="rt-breadcrumb-surround">
               <a href="/" id="breadcrumbs-home"></a>
               <span class="breadcrumbs pathway">
               </span>
             </div>
             <div class="clear"></div>
+          </div>-->
+
+
+          <div id="rt-feature">
+            <div class="rt-grid-12 rt-alpha rt-omega">
+              <div class="ribbon1">
+                <div class="rt-block">
+                  <div class="module-content">
+
+                    <%= yield %>
+          
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+
+
+          <!-- rt-main  -->
           <div id="rt-main" class="mb12">
             <div class="rt-main-inner">
               <div class="rt-grid-12 ">
@@ -144,6 +129,8 @@
               <div class="clear"></div>
             </div>
           </div>
+
+          <!-- rt-footer A Menu -->
           <div id="rt-footer">
             <div class="rt-grid-12 rt-alpha rt-omega">
               <div class="_menu">
@@ -164,6 +151,9 @@
             <div class="clear"></div>
           </div>
         </div>
+
+
+        <!-- rt-copyright Creed, 2010 Row -->
         <div id="rt-copyright">
           <div class="rt-grid-12 rt-alpha rt-omega">
             <div class="clear"></div>
@@ -175,7 +165,11 @@
           <div class="clear"></div>
         </div>
       </div>
+
+      <!-- Divider -->
       <div class="rt-surround-bottom"></div>
+
+      <!-- rt-debug Scroll To Top Row -->
       <div id="rt-debug">
         <div class="rt-grid-12 rt-alpha rt-omega">
           <a href="#" id="gantry-totop"><span>Scroll To Top</span></a>
