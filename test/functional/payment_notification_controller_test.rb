@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class PaymentNotificationControllerTest < ActionController::TestCase
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "create should change user" do
+    flunk("THIS FAILED")
   end
-
 end

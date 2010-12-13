@@ -60,7 +60,6 @@ class User < ActiveRecord::Base
     OpenSSL::PKCS7::encrypt([OpenSSL::X509::Certificate.new(PAYPAL_CERT_PEM)], signed.to_der, OpenSSL::Cipher::Cipher::new("DES3"), OpenSSL::PKCS7::BINARY).to_s.gsub("\n", "")
   end
 
-
   private
 
   def password_non_blank

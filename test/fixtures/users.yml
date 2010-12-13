@@ -1,17 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  first: MyString
-  last: MyString
+  first: Travis
+  last: Rotz
   id: 1
   hashed_password: MyString
   salt: MyString
-  paid: 
+  paid: false
+  votes: 0
+  username: tmrotz
+  email: gmail.com
 
-two:
-  first: MyString
-  last: MyString
-  id: 1
-  hashed_password: MyString
-  salt: MyString
-  paid: 
