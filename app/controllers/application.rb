@@ -6,10 +6,8 @@ class Application < ActionController::Base
 
   def authorize
     unless logged_in?
-      flash[:notice] = "Please Log In"
+      flash[:notice] = "Please log in."
       redirect_to register_url
-    else
-      flash[:notice] = "You Are #{current_user.username}"
     end
   end
 

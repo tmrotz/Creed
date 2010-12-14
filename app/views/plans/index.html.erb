@@ -1,22 +1,22 @@
 
 <div class="module-inner">
 
+  <%= @blah %>
 
   <% if flash[:notice] %>
     <p class="notice"><%=h flash[:notice] %></p>
-  <% else %>
-    <p class="notice">No User Logged In</p>
   <% end %>
 
+  <%= link_to "Submit Plan", new_plan_url %>
 
   <% @plans.each do |plan| %>
-    <p><%=h plan.title %></p>
-    <p><%=h plan.subtitle %></p>
-    <p><%=h plan.target_title %></p>
-    <p><%=h plan.target_body %></p>
-    <p><%=h plan.financial %></p>
-    <p><%=h plan.status %></p>
-    <p><%=h plan.action %></p>
+    <p>
+      <%=h plan.title %>
+      <br/>
+      <%=h plan.subtitle %>
+      <br/>
+      <%=h plan.target_title %>
+    </p>
   <% end %>
     
 

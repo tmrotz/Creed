@@ -4,44 +4,41 @@
 
   <% if flash[:notice] %>
     <p class="notice"><%=h flash[:notice] %></p>
-  <% else %>
-    <p class="notice">No User Logged In</p>
   <% end %>
 
-  <p>
-    <b>Title:</b>
+  <p style="text-align: center;">
     <%=h @plan.title %>
   </p>
 
-  <p>
-    <b>Subtitle:</b>
+  <p style="text-align: center;">
     <%=h @plan.subtitle %>
   </p>
 
   <p>
-    <b>Target:</b>
+    <b style="text-decoration:underline">TARGET:</b>
     <%=h @plan.target_title %>
     <%=h @plan.target_body %>
   </p>
 
   <p>
-    <b>Financial:</b>
+    <b style="text-decoration:underline">FINANCIAL:</b>
     <%=h @plan.financial %>
   </p>
 
   <p>
-    <b>Status:</b>
+    <b style="text-decoration:underline">STATUS:</b>
     <%=h @plan.status %>
   </p>
 
   <p>
-    <b>Action:</b>
+    <b style="text-decoration:underline">ACTION:</b>
     <%=h @plan.action %>
   </p>
 
 
   <%= link_to 'Edit', edit_plan_path(@plan) %> |
   <%= link_to 'Back', plans_path %>
+
 
   <p class="rt-readon-surround">
     <a class="readon" href="/" >

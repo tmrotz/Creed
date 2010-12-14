@@ -1,6 +1,22 @@
 class PlansController < Application
 
 before_filter :authorize
+before_filter :bought_plan?, :except => [:index, :show]
+before_filter :submitted_plan?, :only => [:new, :create]
+
+  def bought_plan?
+    if current_user.paid == 'false'
+      flash[:notice] = "You must purchase a business plan."
+      redirect_to users_url
+    end
+  end
+
+  def submitted_plan?
+    if current_user.paid == 'submitted'
+      flash[:notice] = "You have already submitted a business plan."
+      redirect_to users_url
+    end
+  end
 
   # GET /plans
   # GET /plans.xml
@@ -63,7 +79,7 @@ before_filter :authorize
 
     respond_to do |format|
       if @plan.update_attributes(params[:plan])
-        format.html { redirect_to(@plan, :notice => 'plan was successfully updated.') }
+        format.html { redirect_to(@plan, :notice => 'Plan was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -75,13 +91,6 @@ before_filter :authorize
   # DELETE /plans/1
   # DELETE /plans/1.xml
   def destroy
-    @plan = Plan.find(params[:id])
-    @plan.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(plans_url) }
-      format.xml  { head :ok }
-    end
   end
 
 end
