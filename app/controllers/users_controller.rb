@@ -1,6 +1,15 @@
 class UsersController < Application
   before_filter :authorize, :except => [:new, :create]
 
+  before_filter :correct_user?, :only => [:edit, :update]
+
+  def correct_user?
+    if current_user.id.to_i != params[:id].to_i
+      flash[:notice] = "You account has been flagged."
+      redirect_to users_url
+    end
+  end
+
   # GET /users
   # GET /users.xml
   def index
@@ -9,17 +18,6 @@ class UsersController < Application
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
-    end
-  end
-
-  # GET /users/1
-  # GET /users/1.xml
-  def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
     end
   end
 
@@ -70,18 +68,6 @@ class UsersController < Application
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.xml
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(users_url) }
-      format.xml  { head :ok }
     end
   end
 

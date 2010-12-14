@@ -1,10 +1,16 @@
 
+<div class="module-title"><h2 class="title"><span>User Home</span></h2></div>
 <div class="module-inner">
 
+  <br/>
 
   <% if flash[:notice] %>
     <p class="notice"><%=h flash[:notice] %></p>
   <% end %>
+
+  <%= link_to "Submit Plan", new_plan_url %>
+
+  <br/><br/>
 
   <%= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
     <%= hidden_field_tag :cmd, "_s-xclick" %>
@@ -23,7 +29,8 @@
   <% end %>
 
   <br />
-  
+
+  <%= link_to "Edit Profile", edit_user_url(current_user) %>
 
 </div>
 

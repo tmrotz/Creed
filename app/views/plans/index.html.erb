@@ -1,13 +1,13 @@
-
+<div class="module-title"><h2 class="title"><span>Business Plans</span></h2></div>
 <div class="module-inner">
+
+<br/>
 
 <% if flash[:notice] %>
   <p class="notice"><%=h flash[:notice] %></p>
 <% end %>
-
-  <%= link_to "Submit Plan", new_plan_url %>
   
-  <br/><br/>
+  <br/>
 
   <% @plans.each do |plan| %>
     <div style="margin-bottom: 12%;">
