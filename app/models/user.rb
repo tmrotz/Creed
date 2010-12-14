@@ -1,15 +1,14 @@
 class User < ActiveRecord::Base
 
+  attr_accessor :password_confirmation
+
   validates_presence_of :first
   validates_presence_of :last
   validates_presence_of :username
+  validates_presence_of :password
   validates_uniqueness_of :username
-
-  attr_accessor :password_confirmation
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 6
-
-  validate :password_non_blank
 
   def password
     @password

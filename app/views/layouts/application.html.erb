@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" >
   
   <head>
-    <%= stylesheet_link_tag 'visibleequity' %>
+    <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag 'visibleequity' %>
     <%= csrf_meta_tag %>
-    <title>Creed Business Plans</title>
+    <title>CREED Business Plans</title>
     
     <style type="text/css">
       <!--
@@ -68,7 +68,7 @@
                   <%= link_to "Logout", home_logout_path %>
                 </li>
                 <li style="color:#285B90;font-size: 1.2em;line-height: 1.8em;float:right; margin-top: 3%; height: 30px;">
-                  <%= "Welcome, #{current_user.username}" %>
+                  <%=h "Welcome, #{current_user.username}" %>
                 </li>
               <% else %>
                 <li style="float:right; margin-top: 3%; height: 30px;">
@@ -155,13 +155,13 @@
         </div>
 
 
-        <!-- rt-copyright Creed, 2010 Row -->
+        <!-- rt-copyright CREED, 2010 Row -->
         <div id="rt-copyright">
           <div class="rt-grid-12 rt-alpha rt-omega">
             <div class="clear"></div>
             <div class="rt-block">
               <div class="clear"></div>
-              <span class="copytext">Creed, 2010</span>
+              <span class="copytext">CREED, 2010</span>
             </div>
           </div>
           <div class="clear"></div>

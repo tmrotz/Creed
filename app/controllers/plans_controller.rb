@@ -63,6 +63,7 @@ before_filter :submitted_plan?, :only => [:new, :create]
 
     respond_to do |format|
       if @plan.save
+        User.update_all({:paid => "submitted"}, {:id => current_user.id})
         format.html { redirect_to(@plan, :notice => 'Plan was successfully created.') }
         format.xml  { render :xml => @plan, :status => :created, :location => @plan }
       else
@@ -94,3 +95,4 @@ before_filter :submitted_plan?, :only => [:new, :create]
   end
 
 end
+
