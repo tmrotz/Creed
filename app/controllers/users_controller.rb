@@ -1,6 +1,6 @@
 class UsersController < Application
-  before_filter :authorize, :except => [:new, :create]
 
+  before_filter :authorize, :except => [:new, :create]
   before_filter :correct_user?, :only => [:edit, :update]
 
   def correct_user?
@@ -20,11 +20,13 @@ class UsersController < Application
   # GET /users/new.xml
   def new
     @user = User.new
+    @button_text = "Create Account"
   end
 
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @button_text = "Edit Account"
   end
 
   # POST /users

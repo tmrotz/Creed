@@ -1,42 +1,48 @@
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => {:style => "margin-left:3%;"} do |f| %>
 
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2 style="color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2 style="color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
   <% end %>
+  </ul>
+  
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :first %><br />
-    <%= f.text_field :first %>
-  </div>
-  <div class="field">
-    <%= f.label :last %><br />
-    <%= f.text_field :last %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :user_password, 'Password' %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <% text = "Register" %>
-    <br/>
-    <%= f.submit text %>
-  </div>
+<div style="margin-bottom: 2ex;">
+  <%= f.label "First Name" %><br />
+  <%= f.text_field :first %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label "Last Name" %><br />
+  <%= f.text_field :last %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :username %><br />
+  <%= f.text_field :username %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :user_password, 'Password' %><br />
+  <%= f.password_field :password %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<div>
+  <%= f.submit @button_text %>
+</div>
+
+<%#= select "moo", "moomoo", %w[rap rock country], {} %>
 
 <% end %>

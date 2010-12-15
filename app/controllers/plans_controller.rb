@@ -42,11 +42,13 @@ class PlansController < Application
   # GET /plans/new.xml
   def new
     @plan = Plan.new
+    @button_text = "Create Plan"
   end
 
   # GET /plans/1/edit
   def edit
     @plan = Plan.find(params[:id])
+    @button_text = "Confirm Plan Change"
   end
 
   # POST /plans

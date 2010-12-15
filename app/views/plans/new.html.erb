@@ -1,13 +1,13 @@
 
 <div class="module-inner">
+
+  <div class="module-title"><h2 class="title"><span>New Plan</span></h2></div>
   
-  <% if flash[:notice] %>
-    <p class="notice"><%=h flash[:notice] %></p>
-  <% end %>
+<% if flash[:notice] %>
+  <p class="notice"><%=h flash[:notice] %></p>
+<% end %>
 
-  <h1>New plan</h1>
-
-  <%= render 'form' %>
+<%= render 'form' %>
 
 </div>
 

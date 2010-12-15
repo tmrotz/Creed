@@ -1,4 +1,5 @@
 class HomeController < Application
+  
   before_filter :authorize, :except => [:index, :register, :login]
 
   def index
