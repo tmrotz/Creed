@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101214062552) do
+ActiveRecord::Schema.define(:version => 20101215043059) do
 
   create_table "payment_notifications", :force => true do |t|
     t.string   "status"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20101214062552) do
     t.string   "status",       :limit => 1000
     t.string   "action"
     t.integer  "user_id"
+    t.integer  "votes",                        :default => 0
   end
 
   create_table "sessions", :force => true do |t|
@@ -52,11 +53,11 @@ ActiveRecord::Schema.define(:version => 20101214062552) do
     t.string   "last"
     t.string   "hashed_password"
     t.string   "salt"
-    t.string   "paid"
+    t.string   "paid",            :default => "false"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.integer  "votes"
+    t.integer  "votes",           :default => 0
     t.string   "email"
   end
 

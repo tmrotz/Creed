@@ -1,13 +1,12 @@
 
+<div class="module-title"><h2 class="title"><span>Edit Account</span></h2></div>
 <div class="module-inner">
 
 
   <% if flash[:notice] %>
     <p class="notice"><%=h flash[:notice] %></p>
   <% end %>
-
- <h1>Editing user</h1>
-
+    
   <%= render 'form' %>
 
 </div>

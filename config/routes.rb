@@ -1,14 +1,16 @@
 Creed::Application.routes.draw do
 
+  get "/vote" => "plans#vote"
+
   get "/register" => "home#register"
 
   post "payment_notification" => "payment_notification#create"
 
-  get "/home/login" => "home#login"
-  post "/home/login" => "home#login"
+  get "/login" => "home#login"
+  post "/login" => "home#login"
 
-  get "/home/logout" => "home#logout"
-  post "/home/logout" => "home#logout"
+  get "/logout" => "home#logout"
+  post "/logout" => "home#logout"
 
   resources :users, :plans
 

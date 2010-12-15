@@ -8,10 +8,10 @@
   
   <div>
     <div style="float:left; width:50%;">
-      <%= form_tag home_login_path do %>
+      <%= form_tag login_url do %>
       <fieldset>
         <div>
-          <label for="name">Name:</label>
+          <label for="username">Username:</label>
           <%= text_field_tag :username, params[:username] %>
         </div>
         <div style ="margin-top: 2%;">

@@ -26,20 +26,36 @@ class PlansController < Application
     end
   end
 
+  def vote
+    if current_user.votes > 0
+      plan = Plan.find(params[:plan_id].to_i)
+      num_votes = plan.votes
+      num_votes += 1
+      Plan.update_all({:votes => num_votes}, {:id => plan.id})
+
+      num_votes = current_user.votes
+      num_votes -= 1
+      User.update_all({:votes => num_votes}, {:id => current_user.id})
+      
+      flash[:notice] = "You have #{current_user.votes} votes left."
+      redirect_to users_url
+    else
+      flash[:notice] = "Purchase more votes."
+      redirect_to users_url
+    end
+  end
+
   # GET /plans
-  # GET /plans.xml
   def index
     @plans = Plan.all
   end
 
   # GET /plans/1
-  # GET /plans/1.xml
   def show
     @plan = Plan.find(params[:id])
   end
 
   # GET /plans/new
-  # GET /plans/new.xml
   def new
     @plan = Plan.new
     @button_text = "Create Plan"
@@ -52,7 +68,6 @@ class PlansController < Application
   end
 
   # POST /plans
-  # POST /plans.xml
   def create
     @plan = Plan.new(params[:plan])
 
@@ -67,7 +82,6 @@ class PlansController < Application
   end
 
   # PUT /plans/1
-  # PUT /plans/1.xml
   def update
     @plan = Plan.find(params[:id])
 

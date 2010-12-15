@@ -11,13 +11,11 @@ class UsersController < Application
   end
 
   # GET /users
-  # GET /users.xml
   def index
     @users = User.all
   end
 
   # GET /users/new
-  # GET /users/new.xml
   def new
     @user = User.new
     @button_text = "Create Account"
@@ -30,11 +28,10 @@ class UsersController < Application
   end
 
   # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
-    @user.paid = 'false'
-    @user.votes = 0
+#    @user.paid = 'false'
+#    @user.votes = 0
     
 
     if @user.save
@@ -46,7 +43,6 @@ class UsersController < Application
   end
 
   # PUT /users/1
-  # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
 

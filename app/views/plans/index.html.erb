@@ -16,6 +16,9 @@
         <p class="rt-readon-surround">
           <%= link_to "Read More...", plan, :class => "readon", :style => "color:#666666;" %>
         </p>
+        <p class="rt-readon-surround">
+          <%= link_to "Vote", vote_url(:plan_id => plan), :class => "readon", :style => "text-align:center;width:70px;color:#666666", :confirm => "Are you sure?" %>
+        </p>
       </div>
       <div style="float:left;width:85%;">
         <p>
