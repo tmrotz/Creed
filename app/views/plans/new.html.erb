@@ -1,7 +1,6 @@
 
 <div class="module-inner">
-
-
+  
   <% if flash[:notice] %>
     <p class="notice"><%=h flash[:notice] %></p>
   <% end %>
@@ -9,9 +8,6 @@
   <h1>New plan</h1>
 
   <%= render 'form' %>
-
-  <%= link_to 'Back', plans_path %>
-
 
 </div>
 
