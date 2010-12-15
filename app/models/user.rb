@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_one :plan
+
   attr_accessor :password_confirmation
 
   validates_presence_of :first

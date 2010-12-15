@@ -1,8 +1,9 @@
 class PlansController < Application
 
-before_filter :authorize
-before_filter :bought_plan?, :except => [:index, :show]
-before_filter :submitted_plan?, :only => [:new, :create]
+  before_filter :authorize
+  before_filter :bought_plan?, :except => [:index, :show]
+  before_filter :submitted_plan?, :only => [:new, :create]
+  before_filter :your_plan?, :only => [:edit, :update]
 
   def bought_plan?
     if current_user.paid == 'false'
@@ -18,37 +19,29 @@ before_filter :submitted_plan?, :only => [:new, :create]
     end
   end
 
+  def your_plan?
+    if current_user.plan.id.to_i != params[:id].to_i
+      flash[:notice] = "You account has been flagged."
+      redirect_to plans_url
+    end
+  end
+
   # GET /plans
   # GET /plans.xml
   def index
     @plans = Plan.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
   end
 
   # GET /plans/1
   # GET /plans/1.xml
   def show
     @plan = Plan.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @plan }
-    end
   end
 
   # GET /plans/new
   # GET /plans/new.xml
   def new
     @plan = Plan.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @plan }
-    end
   end
 
   # GET /plans/1/edit
@@ -61,15 +54,13 @@ before_filter :submitted_plan?, :only => [:new, :create]
   def create
     @plan = Plan.new(params[:plan])
 
-    respond_to do |format|
-      if @plan.save
-        User.update_all({:paid => "submitted"}, {:id => current_user.id})
-        format.html { redirect_to(@plan, :notice => 'Plan was successfully created.') }
-        format.xml  { render :xml => @plan, :status => :created, :location => @plan }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @plan.errors, :status => :unprocessable_entity }
-      end
+    if @plan.save
+      User.update_all({:paid => "submitted"}, {:id => current_user.id})
+      current_user.plan = @plan
+      current_user.plan.save
+      redirect_to(@plan, :notice => 'Plan was successfully created.')
+    else
+      render :action => "new"
     end
   end
 
@@ -78,20 +69,11 @@ before_filter :submitted_plan?, :only => [:new, :create]
   def update
     @plan = Plan.find(params[:id])
 
-    respond_to do |format|
-      if @plan.update_attributes(params[:plan])
-        format.html { redirect_to(@plan, :notice => 'Plan was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @plan.errors, :status => :unprocessable_entity }
-      end
+    if @plan.update_attributes(params[:plan])
+      redirect_to(@plan, :notice => 'Plan was successfully updated.')
+    else
+      render :action => "edit"
     end
-  end
-
-  # DELETE /plans/1
-  # DELETE /plans/1.xml
-  def destroy
   end
 
 end

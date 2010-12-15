@@ -2,16 +2,18 @@
 <div class="module-title"><h2 class="title"><span>User Home</span></h2></div>
 <div class="module-inner">
 
-  <br/>
+<% if flash[:notice] %>
+  <p class="notice"><%=h flash[:notice] %></p>
+<% end %>
 
-  <% if flash[:notice] %>
-    <p class="notice"><%=h flash[:notice] %></p>
-  <% end %>
-
+<% if current_user.paid == "true" %>
   <%= link_to "Submit Plan", new_plan_url %>
+<% elsif current_user.paid == "submitted" %>
+  <%= link_to "Edit Plan", edit_plan_url(current_user.plan) %>
+<% end %>
 
   <br/><br/>
-
+  
   <%= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
     <%= hidden_field_tag :cmd, "_s-xclick" %>
     <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(10, "Votes", 1) %>
