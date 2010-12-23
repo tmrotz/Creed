@@ -1,0 +1,5 @@
+class School < ActiveRecord::Base
+
+  has_one :user
+  
+end

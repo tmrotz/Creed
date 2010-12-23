@@ -23,12 +23,14 @@
 
   <br />
 
+<% if current_user.paid == "false" %>
   <%= form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do %>
     <%= hidden_field_tag :cmd, "_s-xclick" %>
     <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Business Plan", 0) %>
     <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
     <%= submit_tag "Purchase Business Plan" %>
   <% end %>
+<% end %>
 
   <br />
 

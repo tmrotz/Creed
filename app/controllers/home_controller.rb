@@ -16,8 +16,11 @@ class HomeController < Application
       # Save the user id in the session so it can be used in
       # subsequent requests
       session[:current_user_id] = user.id
+      redirect_to users_url
+    else
+      flash[:notice] = "username/password did not match"
+      redirect_to register_url
     end
-    redirect_to users_url
   end
 
   # "Delete" a login, aka "log the user out"

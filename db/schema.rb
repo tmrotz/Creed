@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101215043059) do
+ActiveRecord::Schema.define(:version => 20101223223602) do
 
   create_table "payment_notifications", :force => true do |t|
     t.string   "status"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(:version => 20101215043059) do
     t.integer  "votes",                        :default => 0
   end
 
+  create_table "schools", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -59,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20101215043059) do
     t.string   "username"
     t.integer  "votes",           :default => 0
     t.string   "email"
+    t.integer  "school_id"
   end
 
 end
