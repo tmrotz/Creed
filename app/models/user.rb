@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
   has_one :plan
-
   belongs_to :school
 
   attr_accessor :password_confirmation
