@@ -6,11 +6,9 @@ Creed::Application.routes.draw do
 
   post "payment_notification" => "payment_notification#create"
 
-  get "/login" => "home#login"
   post "/login" => "home#login"
 
   get "/logout" => "home#logout"
-  post "/logout" => "home#logout"
 
   resources :users, :plans
 

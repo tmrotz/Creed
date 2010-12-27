@@ -1,5 +1,5 @@
 
-<%= form_for @user, :html => {:style => "margin-top:2%;margin-left:3%;"} do |f| %>
+<%= form_for @user, :method => :post, :html => {:style => "margin-top:2%;margin-left:3%;"} do |f| %>
 
 <% if @user.errors.any? %>
 <div id="error_explanation">
@@ -53,7 +53,5 @@
 <div>
   <%= f.submit @button_text %>
 </div>
-
-<%#= select "moo", "moomoo", %w[rap rock country], {} %>
 
 <% end %>

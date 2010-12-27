@@ -4,7 +4,7 @@ class PlansController < Application
   before_filter :bought_plan?, :except => [:index, :show]
   before_filter :submitted_plan?, :only => [:new, :create]
   before_filter :your_plan?, :only => [:edit, :update]
-#  before_filter :your_schools_plan?, :only => [:show]
+  before_filter :your_schools_plan?, :only => [:show, :vote]
 
   def bought_plan?
     if current_user.paid == 'false'
@@ -27,12 +27,13 @@ class PlansController < Application
     end
   end
 
-#  def your_schools_plan?
-#    if current_user.school_id.to_i != Plan.find(params[:id]).school_id.to_i
-#      flash[:notice] = "Your account has been flagged."
-#      redirect_to plans_url
-#    end
-#  end
+  def your_schools_plan?
+    plan = Plan.find(params[:id])
+    if current_user.school_id.to_i != plan.user.school_id.to_i
+      flash[:notice] = "Your account has been flagged."
+      redirect_to plans_url
+    end
+  end
 
   def vote
     if current_user.votes > 0
