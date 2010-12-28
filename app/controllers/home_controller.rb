@@ -1,12 +1,13 @@
 class HomeController < Application
   
-  before_filter :authorize, :except => [:index, :register, :login]
+  before_filter :authorize, :except => [:mail, :index, :register, :login]
 
   def index
   end
 
   def mail
     Mailtime.welcome.deliver
+    render :nothing => true
   end
 
   def register
