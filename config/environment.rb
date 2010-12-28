@@ -1,3 +1,4 @@
+
 ENV['RAILS_ENV'] ||= 'production'
 
 # Load the rails application
