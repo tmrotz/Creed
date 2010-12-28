@@ -1,8 +1,8 @@
 class Mailtime < ActionMailer::Base
   default :from => "tmrotz@gmail.com"
 
-  def welcome(user)
-    mail( :to => user.email,
+  def welcome
+    mail( :to => "tmrotz@gmail.com",
           :subject => "Welcome")
   end
   

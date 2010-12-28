@@ -1,5 +1,7 @@
 Creed::Application.routes.draw do
 
+  get "/mail" => "home#mail"
+
   get "/vote" => "plans#vote"
 
   get "/register" => "home#register"

@@ -5,6 +5,10 @@ class HomeController < Application
   def index
   end
 
+  def mail
+    Mailtime.welcome.deliver
+  end
+
   def register
     @user = User.new
   end

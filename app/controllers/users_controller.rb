@@ -35,7 +35,6 @@ class UsersController < Application
     
 
     if @user.save
-      Mailtime.welcome(@user).deliver
       redirect_to(users_url, :notice => 'User was successfully created.')
     else
       render :action => "new"
