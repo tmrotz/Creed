@@ -8,7 +8,7 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :login
 }
 
-if Rails.env.development
+if Rails.env.development?
   ActionMailer::Base.default_url_options[:host] = "localhost:3000"
 else
   ActionMailer::Base.default_url_options[:host] = "creed.trconsulting.railsplayground.net"
