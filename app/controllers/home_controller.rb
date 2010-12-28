@@ -7,7 +7,7 @@ class HomeController < Application
 
   def mail
     Mailtime.welcome.deliver
-    render :nothing => true
+    
   end
 
   def register
