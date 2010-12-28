@@ -1,9 +1,9 @@
+ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :domain => "creed.com",
-  :user_name => "tmrotz",
-  :password => "1amAmulek",
-  :authentication => "plain",
-  :enable_starttls_auto => true
+  :address => "localhost",
+  :port => 25,
+  :domain => "trconsulting.railsplayground.net",
+  :user_name => "travis@trconsulting.railsplayground.net",
+  :password => "ender999",
+  :authentication => :login
 }
