@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'mysql', '2.8.1'
+
 gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
