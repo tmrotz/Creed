@@ -6,7 +6,8 @@ ActionMailer::Base.smtp_settings = {
   :domain => "creed.trconsulting.railsplayground.net",
   :user_name => "travis@creed.trconsulting.railsplayground.net",
   :password => "ender999",
-  :authentication => :login
+  :authentication => :login,
+  :enable_starttls_auto => false
 }
 
 #if Rails.env.development?
