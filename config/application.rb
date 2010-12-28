@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Creed
   class Application < Rails::Application
 
-    config.middleware.use ::ExceptionNotifier,
+    config.middleware.use "::ExceptionNotifier",
       :email_prefix => "CREED-Errors: ",
       :sender_address => %w{travis@trconsulting.railsplayground.net},
       :exception_recipients => %w{tmrotz@gmail.com}
