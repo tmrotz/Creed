@@ -1,7 +1,7 @@
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address => "creed.localhost",
+  :address => "localhost",
   :port => 25,
   :domain => "creed.trconsulting.railsplayground.net",
   :user_name => "travis@creed.trconsulting.railsplayground.net",
