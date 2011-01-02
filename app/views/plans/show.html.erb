@@ -15,23 +15,23 @@
 
   <p>
     <b style="text-decoration:underline">TARGET:</b>
-    <%=h @plan.target_title %>
-    <%=h @plan.target_body %>
+    <pre><%=h @plan.target_title %></pre>
+    <pre><%=h @plan.target_body, html_options => "style=word-wrap:break-word;" %></pre>
   </p>
 
   <p>
     <b style="text-decoration:underline">FINANCIAL:</b>
-    <%=h @plan.financial %>
+    <pre><%=h @plan.financial %></pre>
   </p>
 
   <p>
     <b style="text-decoration:underline">STATUS:</b>
-    <%=h @plan.status %>
+    <pre><%=h @plan.status %></pre>
   </p>
 
   <p>
     <b style="text-decoration:underline">ACTION:</b>
-    <%=h @plan.action %>
+    <pre><%=h @plan.action %></pre>
   </p>
 
 </div>

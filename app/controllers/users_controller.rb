@@ -5,7 +5,8 @@ class UsersController < Application
 
   def correct_user?
     if current_user.id.to_i != params[:id].to_i
-      flash[:notice] = "You account has been flagged."
+      Mailtime.hacker(current_user).deliver
+      flash[:notice] = "You account has been flagged.[Error code: 78]"
       redirect_to users_url
     end
   end
@@ -35,6 +36,7 @@ class UsersController < Application
     
 
     if @user.save
+      Mailtime.welcome(@user).deliver
       redirect_to(users_url, :notice => 'User was successfully created.')
     else
       render :action => "new"

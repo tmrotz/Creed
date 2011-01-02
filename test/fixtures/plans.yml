@@ -1,5 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  title: asldkfjl
-  body: klheknls
-  conclusion: aslkeinbog
+plan1:
+  title: titletitletitletitletitletitle
+  subtitle: subtitlesubtitlesubtitlesubtitlesubtitlesubtitle
+  target_title: target_titletarget_titletarget_titletarget_title
+  target_body: target_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_bodytarget_body
+  financial: financialfinancialfinancialfinancialfinancialfinancialfinancialfinancialfinancial
+  status: statusstatusstatusstatusstatusstatusstatusstatusstatusstatusstatusstatusstatus
+  action: actionactionactionactionactionactionactionactionactionactionactionactionaction
+  user_id: users(:user1).id

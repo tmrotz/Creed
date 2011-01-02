@@ -21,8 +21,8 @@ class PlansController < Application
   end
 
   def your_plan?
-    if current_user.plan.id != params[:id]
-      flash[:notice] = "Your account has been flagged."
+    if current_user.plan.id.to_i != params[:id].to_i
+      flash[:notice] = "Your account has been flagged.[Error code: 19]"
       redirect_to plans_url
     end
   end
@@ -30,7 +30,7 @@ class PlansController < Application
   def your_schools_plan?
     plan = Plan.find(params[:id])
     if current_user.school_id.to_i != plan.user.school_id.to_i
-      flash[:notice] = "Your account has been flagged."
+      flash[:notice] = "Your account has been flagged.[Error code: 23]"
       redirect_to plans_url
     end
   end

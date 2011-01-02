@@ -8,7 +8,7 @@ class ExceptionNotifier
 
     class << self
       def default_sender_address
-        %("Exception Notifier" <travis@trconsulting.railsplayground.net>)
+        %("Exception Notifier" <exception.notifier@default.com>)
       end
 
       def default_exception_recipients

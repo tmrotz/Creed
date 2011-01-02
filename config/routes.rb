@@ -6,6 +6,8 @@ Creed::Application.routes.draw do
 
   post "payment_notification" => "payment_notification#create"
 
+  get "/" => "home#index"
+
   post "/login" => "home#login"
 
   get "/logout" => "home#logout"
@@ -61,7 +63,7 @@ Creed::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => HomeController.action(:index)
 
   # See how all your routes lay out with "rake routes"
 

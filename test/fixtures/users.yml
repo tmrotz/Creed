@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+user1:
   first: Travis
   last: Rotz
-  id: 1
-  hashed_password: MyString
-  salt: MyString
+  hashed_password: e1a9a5ee0f2063f1b883148b52bd2a12df7bf812
+  salt: 150231840.8107352989951556
   paid: false
-  votes: 0
   username: tmrotz
-  email: gmail.com
-
+  votes: 0
+  email: tmrotz@gmail.com
+  school_id: schools(:school1).id
+  

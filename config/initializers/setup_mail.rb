@@ -1,14 +1,26 @@
-ActionMailer::Base.raise_delivery_errors = true
+
 ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address => "localhost",
-  :port => 25,
-  :domain => "trconsulting.railsplayground.net",
-  :user_name => "travis@trconsulting.railsplayground.net",
-  :password => "ender999",
-  :authentication => :login,
-  :enable_starttls_auto => false
-}
+
+if Rails.env.development?
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :user_name => "tmrotz",
+    :password => "1amAmulek",
+    :authentication => "plain",
+    :enable_starttls_auto => true
+  }
+elsif Rails.env.production?
+  ActionMailer::Base.smtp_settings = {
+    :address => "localhost",
+    :port => 25,
+    :domain => "trconsulting.railsplayground.net",
+    :user_name => "travis@trconsulting.railsplayground.net",
+    :password => "ender999",
+    :authentication => :login,
+    :enable_starttls_auto => false
+  }
+end
 
 #if Rails.env.development?
 #  ActionMailer::Base.default_url_options[:host] = "localhost:3000"
