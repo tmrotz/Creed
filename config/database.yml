@@ -20,6 +20,6 @@ production:
   encoding: utf8
   database: trconsul_production
   pool: 5
-  username: trconsul_travis
+  username: creed-bplan
   password: ender999
   socket: /tmp/mysql.sock
