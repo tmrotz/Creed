@@ -17,10 +17,10 @@ set :deploy_to, "/home/trconsul/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :scm_verbose, true
-set :default_run_options[:pty] = true
+default_run_options[:pty] = true
 
 namespace :deploy do
   task :restart do
-    run "touch #{current_path}/Creed/tmp/restart.txt}"
+    run "touch /home/trconsul/Creed/tmp/restart.txt"
   end
 end
