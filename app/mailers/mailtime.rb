@@ -7,10 +7,10 @@ class Mailtime < ActionMailer::Base
           :subject => "Welcome")
   end
 
-  def hacker(user)
+  def hacker(user, subject_text)
     @user = user
     mail( :to => "tmrotz@gmail.com",
-          subject => "#{user.first} #{user.last} tried something bad")
+          subject => "#{user.first} #{user.last} #{subject_text}")
   end
   
 end

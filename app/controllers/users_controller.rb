@@ -5,7 +5,7 @@ class UsersController < Application
 
   def correct_user?
     if current_user.id.to_i != params[:id].to_i
-      Mailtime.hacker(current_user).deliver
+      Mailtime.hacker(current_user, "Access another user's account").deliver
       flash[:notice] = "You account has been flagged.[Error code: 78]"
       redirect_to users_url
     end

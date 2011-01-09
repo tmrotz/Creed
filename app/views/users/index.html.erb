@@ -7,6 +7,9 @@
 <% end %>
 
 <% if current_user.paid == "true" %>
+ <p>
+   <i>Ready to write your business plan?</i>
+ </p>
   <%= link_to "Submit Plan", new_plan_url %>
 <% elsif current_user.paid == "submitted" %>
   <%= link_to "Edit Plan", edit_plan_url(current_user.plan) %>

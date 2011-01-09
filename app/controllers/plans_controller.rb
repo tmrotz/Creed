@@ -4,7 +4,7 @@ class PlansController < Application
   before_filter :bought_plan?, :except => [:index, :show]
   before_filter :submitted_plan?, :only => [:new, :create]
   before_filter :your_plan?, :only => [:edit, :update]
-  before_filter :your_schools_plan?, :only => [:show, :vote]
+#  before_filter :your_schools_plan?, :only => [:show, :vote]
 
   def bought_plan?
     if current_user.paid == 'false'
@@ -22,18 +22,20 @@ class PlansController < Application
 
   def your_plan?
     if current_user.plan.id.to_i != params[:id].to_i
+      Mailtime.hacker(current_user, "Change another user's plan").deliver
       flash[:notice] = "Your account has been flagged.[Error code: 19]"
       redirect_to plans_url
     end
   end
 
-  def your_schools_plan?
-    plan = Plan.find(params[:id])
-    if current_user.school_id.to_i != plan.user.school_id.to_i
-      flash[:notice] = "Your account has been flagged.[Error code: 23]"
-      redirect_to plans_url
-    end
-  end
+#  def your_schools_plan?
+#    plan = Plan.find(params[:id])
+#    if current_user.school_id.to_i != plan.user.school_id.to_i
+#     Mailtime.welcome(@user, "Access different school's plan").deliver
+#      flash[:notice] = "Your account has been flagged.[Error code: 23]"
+#      redirect_to plans_url
+#    end
+#  end
 
   def vote
     if current_user.votes > 0
@@ -56,11 +58,12 @@ class PlansController < Application
 
   # GET /plans
   def index
-    users = User.find_all_by_school_id(current_user.school_id)
-    @plans = Array.new
-    users.each do |u|
-      @plans << u.plan if u.plan != nil
-    end
+#    users = User.find_all_by_school_id(current_user.school_id)
+#    @plans = Array.new
+#    users.each do |u|
+#      @plans << u.plan if u.plan != nil
+#    end
+    @plans = Plan.all
   end
 
   # GET /plans/1
