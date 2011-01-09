@@ -18,8 +18,8 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: trconsul_production
+  database: production
   pool: 5
   username: creed-bplan
   password: ender999
-  socket: /tmp/mysql.sock
+#  socket: /tmp/mysql.sock
