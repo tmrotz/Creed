@@ -1,17 +1,17 @@
 
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = true
-ActionMailer::Base.raise_delivery_errors = true
 
-#if Rails.env.development?
-#  ActionMailer::Base.smtp_settings = {
-#    :address => "smtp.gmail.com",
-#    :port => 587,
-#    :user_name => "tmrotz",
-#    :password => "1amAmulek",
-#    :authentication => "plain",
-#    :enable_starttls_auto => true
-#  }
+if Rails.env.development?
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :user_name => "tmrotz",
+    :password => "1amAmulek",
+    :authentication => "plain",
+    :enable_starttls_auto => true
+  }
+end
 #elsif Rails.env.production?
 #  ActionMailer::Base.smtp_settings = {
 #    :address => "localhost",
