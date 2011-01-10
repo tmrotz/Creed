@@ -1,5 +1,5 @@
 Creed::Application.routes.draw do
-
+  
   get "/admin" => "admin#index"
 
   get "/vote" => "plans#vote"

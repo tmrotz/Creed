@@ -10,8 +10,8 @@ module Creed
   class Application < Rails::Application
     
     config.middleware.use "::ExceptionNotifier",
-      :email_prefix => "CREED-Errors: ",
-      :sender_address => %w{travis@trconsulting.railsplayground.net},
+      :email_prefix => "CREED-Error: ",
+      :sender_address => %w{creed-bplan@creed-bplan.org},
       :exception_recipients => %w{tmrotz@gmail.com}
     
     # Settings in config/environments/* take precedence over those specified here.

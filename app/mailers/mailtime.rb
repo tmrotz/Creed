@@ -1,5 +1,9 @@
 class Mailtime < ActionMailer::Base
-  default :from => "travis@trconsulting.railsplayground.net"
+  if Rails.env.production?
+    default :from => "creed-bplan@creed-bplan.org"
+  elsif Rails.env.development?
+    default :from => "tmrotz@gmail.com"
+  end
 
   def welcome(user)
     @user = user

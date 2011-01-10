@@ -14,16 +14,10 @@ elsif Rails.env.production?
   ActionMailer::Base.smtp_settings = {
     :address => "localhost",
     :port => 25,
-    :domain => "trconsulting.railsplayground.net",
-    :user_name => "travis@trconsulting.railsplayground.net",
-    :password => "ender999",
+    :domain => "creed-bplan.org",
+    :user_name => "creed-bplan.org@creed-bplan.org",
+    :password => "1amAmulek",
     :authentication => :login,
     :enable_starttls_auto => false
   }
 end
-
-#if Rails.env.development?
-#  ActionMailer::Base.default_url_options[:host] = "localhost:3000"
-#else
-#  ActionMailer::Base.default_url_options[:host] = "creed.trconsulting.railsplayground.net"
-#end
