@@ -1,0 +1,31 @@
+
+<%= form_for @user, :method => :post, :html => {:style => "margin-top:2%;margin-left:3%;"} do |f| %>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2 style="color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+  
+</div>
+<% end %>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :user_password, 'New Password' %><br />
+  <%= f.password_field :password %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :password_confirmation, 'New Password Confirmation' %><br />
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<div>
+  <%= f.submit @button_text %>
+</div>
+
+<% end %>
