@@ -6,16 +6,20 @@
   <p class="notice"><%=h flash[:notice] %></p>
 <% end %>
 
+  <br />
+
 <% if current_user.paid == "true" %>
  <p>
-   <i>Ready to write your business plan?</i>
+   Ready to submit your business plan?
  </p>
   <%= link_to "Submit Plan", new_plan_url %>
+
+  <br /><br />
 <% elsif current_user.paid == "submitted" %>
   <%= link_to "Edit Plan", edit_plan_url(current_user.plan) %>
-<% end %>
 
-  <br/><br/>
+  <br /><br />
+<% end %>
   
   <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
     <%= hidden_field_tag :cmd, "_s-xclick" %>
@@ -33,11 +37,11 @@
     <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
     <%= submit_tag "Purchase Business Plan" %>
   <% end %>
-<% end %>
 
   <br />
+<% end %>
 
-  <%= link_to "Edit Profile", edit_user_url(current_user) %>
+  <%= link_to "Change Password", edit_user_url(current_user) %>
 
 </div>
 

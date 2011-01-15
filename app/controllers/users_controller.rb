@@ -25,7 +25,7 @@ class UsersController < Application
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    @button_text = "Edit Account"
+    @button_text = "Confirm"
   end
 
   # POST /users

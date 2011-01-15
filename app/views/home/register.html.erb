@@ -7,26 +7,15 @@
 <% end %>
   
   <div>
+    
     <div style="float:left; width:50%;">
-      <%= form_tag login_url, :method => :post do %>
-      <fieldset>
-        <div>
-          <label for="username">Username:</label>
-          <%= text_field_tag :username, params[:username] %>
-        </div>
-        <div style ="margin-top: 2%;">
-          <label for="password">Password:</label>
-          <%= password_field_tag :password, params[:password] %>
-        </div>
-        <div style="margin-top: 2%;">
-          <%= submit_tag "Login" %>
-        </div>
-      </fieldset>
-      <% end %>
+      <%= render 'form' %>
     </div>
+
     <div style="float:left; width:50%;">
       <%= render 'users/form' %>
     </div>
+
   </div>
   
 </div>

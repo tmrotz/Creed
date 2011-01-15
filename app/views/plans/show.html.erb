@@ -1,37 +1,36 @@
 
-<div class="module-inner" style="padding: 0 8em 0 8em;">
+<div class="module-inner" style="padding: 0 8em 0 8em; color: black; font-family:'Times New Romsn', Times, serif;">
 
   <% if flash[:notice] %>
     <p class="notice"><%=h flash[:notice] %></p>
   <% end %>
 
-  <p style="text-align: center;">
+  <h3 style="text-align: center;">
     <%=h @plan.title %>
-  </p>
+  </h3>
 
   <p style="text-align: center;">
-    <%=h @plan.subtitle %>
+    <i><%=h @plan.subtitle %></i>
   </p>
 
-  <p>
-    <b style="text-decoration:underline">TARGET:</b>
-    <pre><%=h @plan.target_title %></pre>
-    <pre><%=h @plan.target_body, html_options => "style=word-wrap:break-word;" %></pre>
+  <p><b style="text-decoration:underline">TARGET:</b>
+    <%=h @plan.target_title %>
   </p>
+  <p><%=h @plan.target_body %></p>
 
   <p>
     <b style="text-decoration:underline">FINANCIAL:</b>
-    <pre><%=h @plan.financial %></pre>
+    <%=h @plan.financial %>
   </p>
 
   <p>
     <b style="text-decoration:underline">STATUS:</b>
-    <pre><%=h @plan.status %></pre>
+    <%=h @plan.status %>
   </p>
 
   <p>
     <b style="text-decoration:underline">ACTION:</b>
-    <pre><%=h @plan.action %></pre>
+    <%=h @plan.action %>
   </p>
 
 </div>
