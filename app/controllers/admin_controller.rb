@@ -4,12 +4,12 @@ class AdminController < Application
 
   def check_admin
     if current_user.nil?
-      redirect_to index_url
-    end
-    if current_user.username != "tmrotz"
+      flash[:notice] = "Nil user. [Error code: 13]"
+      redirect_to :root
+    elsif current_user.username != "tmrotz"
       Mailtime.hacker(current_user, "Access admin control").deliver
-      flash[:notice] = "Your account has been flagged.[Error code: 63]"
-      redirect_to index_url
+      flash[:notice] = "Your account has been flagged. [Error code: 63]"
+      redirect_to :root
     end
   end
 
