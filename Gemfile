@@ -1,8 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'mysql', '2.8.1'
+group :production do
+   gem 'mysql', '2.8.1'
+end
 
-#gem 'sqlite3-ruby', :require => 'sqlite3'
+group :development do
+   gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 
 gem 'rails', '3.0.3'
 
