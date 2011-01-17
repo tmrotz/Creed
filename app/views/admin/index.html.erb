@@ -13,7 +13,7 @@
       <td>Plan Votes</td>
     </tr>
 
-    <%= unless @plans.nil? %>
+    <% unless @plans.nil? %>
     <% @plans.each do |plan| %>
     <tr>
       <td><%= plan.user_id %></td>
