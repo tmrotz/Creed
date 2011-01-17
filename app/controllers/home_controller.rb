@@ -6,7 +6,6 @@ class HomeController < Application
   end
 
   def register
-    @user = User.new
   end
 
   # "Create" a login, aka "log the user in"
