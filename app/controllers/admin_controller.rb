@@ -14,8 +14,8 @@ class AdminController < Application
   end
 
   def index
+    @plans = Plan.order("votes").reverse!
     render :layout => false
-    @plans = Plan.all
   end
 
 end

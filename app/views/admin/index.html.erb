@@ -1,27 +1,28 @@
 
-  <% if flash[:notice] %>
-    <p class="notice"><%=h flash[:notice] %></p>
-  <% end %>
-    
-  <br />
+<% if flash[:notice] %>
+  <p class="notice"><%=h flash[:notice] %></p>
+<% end %>
 
-  <% unless @plans.nil? %>
-    <%= @plans.each do |plan| %>
-      <div style="margin-bottom: 12%;">
-        <div style="float:left;width:85%;">
-          <table>
-            <tr>
-              <td>User ID</td>
-              <td>Plan ID</td>
-              <td>Plan Votes</td>
-            </tr>
-            <tr>
-              <td><%= plan.user.id %></td>
-              <td><%= plan.id %></td>
-              <td><%= plan.votes %></td>
-            </tr>
-          </table>
-        </div>
-      </div>
+<br />
+
+<div>
+  <table border="1" style="text-align:center;">
+    <tr>
+      <td>User ID</td>
+      <td>Plan ID</td>
+      <td>Plan Votes</td>
+    </tr>
+
+    <%= unless @plans.nil? %>
+    <% @plans.each do |plan| %>
+    <tr>
+      <td><%= plan.user_id %></td>
+      <td><%= plan.id %></td>
+      <td><%= plan.votes %></td>
+    </tr>
     <% end %>
-  <% end %>
+    <% end %>
+    
+  </table>
+</div>
+
