@@ -2,31 +2,31 @@
 <div class="module-inner" style="padding: 0 8em 0 8em; color: black; font-family:'Times New Romsn', Times, serif;">
 
   <h3 style="text-align: center;">
-    <%=h @plan.title %>
+    <%=h @title %>
   </h3>
 
   <p style="text-align: center;">
-    <i><%=h @plan.subtitle %></i>
+    <i><%=h @subtitle %></i>
   </p>
 
   <p><b style="text-decoration:underline">TARGET:</b>
-    <%=h @plan.target_title %>
+    <%=h @target_title %>
   </p>
-  <p><%=h @plan.target_body %></p>
+  <p><%=h @target_body.html_safe %></p>
 
   <p>
     <b style="text-decoration:underline">FINANCIAL:</b>
-    <%=h @plan.financial %>
+    <%=h @financial.html_safe %>
   </p>
 
   <p>
     <b style="text-decoration:underline">STATUS:</b>
-    <%=h @plan.status %>
+    <%=h @status.html_safe %>
   </p>
 
   <p>
     <b style="text-decoration:underline">ACTION:</b>
-    <%=h @plan.action %>
+    <%=h @action.html_safe %>
   </p>
 
 </div>

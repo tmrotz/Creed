@@ -69,6 +69,14 @@ class PlansController < Application
   # GET /plans/1
   def show
     @plan = Plan.find(params[:id])
+
+    @title = @plan.title
+    @subtitle = @plan.subtitle
+    @target_title = @plan.target_title
+    @target_body = BBRuby.to_html(@plan.target_body)
+    @financial = BBRuby.to_html(@plan.financial)
+    @status = BBRuby.to_html(@plan.status)
+    @action = BBRuby.to_html(@plan.action)
   end
 
   # GET /plans/new

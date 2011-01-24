@@ -1,7 +1,7 @@
 class Application < ActionController::Base
   
   protect_from_forgery
-
+  
   private
 
   def authorize
