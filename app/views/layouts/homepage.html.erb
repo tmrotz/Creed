@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" >
+  
+  <head>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <title>CREED Business Plans</title>
+
+    <%= favicon_link_tag %>
+
+  </head>
+
+
+  <body  class="backgroundlevel-low bodylevel-high cssstyle-style3 showcase-color1 articletitle-color1 font-family-helvetica font-size-is-default menu-type-splitmenu col12 ">
+    <div class="rt-container">
+      <div id="rt-drawer">
+        <div class="clear"></div>
+      </div>
+
+      <div class="rt-surround-top"></div>
+      <div class="rt-surround">
+        <div id="rt-header">
+          <div class="rt-grid-3 rt-alpha">
+            <div class="rt-block">
+              <div id="rt-logo"></div>
+            </div>
+          </div>
+          <div class="rt-grid-9 rt-omega">
+            <%= render 'home/topbar' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="rt-showcase">
+          <div class="rt-header-spacer"></div>
+          <div class="clear"></div>
+        </div>
+        <div id="rt-main-divider"></div>
+        <div id="rt-main-surround">
+
+          
+          <%= yield %>
+          
+
+          <!-- rt-footer A Menu -->
+          <div id="rt-footer">
+            <div class="rt-grid-12 rt-alpha rt-omega">
+              <div class="_menu">
+                <div class="rt-block">
+                  <div class="module-content">
+                    <div class="module-title"><h2 class="title">A Menu</h2></div>
+                    <div class="clear"></div>
+                    <div class="module-inner">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr ><td><a href="/" class="mainlevel" >Link</a></td></tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+
+        <!-- rt-copyright CREED, 2010 Row -->
+        <div id="rt-copyright">
+          <div class="rt-grid-12 rt-alpha rt-omega">
+            <div class="clear"></div>
+            <div class="rt-block">
+              <div class="clear"></div>
+              <span class="copytext">CREED, 2010&copy;</span>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="rt-surround-bottom"></div>
+
+      <!-- rt-debug Scroll To Top Row -->
+      <div id="rt-debug">
+        <div class="rt-grid-12 rt-alpha rt-omega">
+          <a href="#" id="gantry-totop"><span>Scroll To Top</span></a>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
+</html>
