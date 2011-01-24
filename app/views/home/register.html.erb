@@ -1,38 +1,27 @@
 
-<div class="module-title"><h2 class="title"><span>Login or Register</span></h2></div>
+<div class="module-title"><h2 class="title"><span>Register</span></h2></div>
 <div class="module-inner">
-  
-<% if flash[:notice] %>
-  <p class="notice"><%=h flash[:notice] %></p>
-<% end %>
-  
+
   <div>
-    
-    <div style="float:left; width:40%;">
-      <div style="padding: 2% 0 0 6%;">
-        <%= render 'form' %>
-      </div>
-    </div>
 
-    <div style="float:left; width:60%;">
-      
-      <ul style="list-style-type: decimal;">
-        <li>Must be over 18 years old</li>
-        <li>Cannot be a family member of anyone who works at or with CREED or More Marbles</li>
-        <li>The idea must be original -your own idea</li>
-        <li>This is also a donation to CREED and therefore there will be no refunds if you change your mind and wish not to participate or vote</li>
-        <li>If you choose not to vote or don't vote for any reason there are no refunds</li>
-        <li>Voting will be conducted in two rounds: The first round will select the 8 business plans with the highest number of votes, thenext and final round will select the top 3 for first, second and third place. Should there be a tie for any of the places the prize money will be split between the tying contestants. People who submit business plans and or purchase votes will be allowed to cast their votes in both rounds</li>
-        <li>By agreeing to this you agree to allow CREED rights to photograph the events and use the information and photographs to publicize CREED and its mission on its webste which will become a copyright of CREED; all rights reserved. You retain ownership of the business idea and may mention winning the CREED Business Plan Contest and money or award in your reume</li>
-        <li>All decisions are final and may not be appealed</li>
-      </ul>
+    <ul style="list-style-type: decimal;">
+      <li>Must be over 18 years old</li>
+      <li>Cannot be a family member of anyone who works at or with CREED or More Marbles</li>
+      <li>The idea must be original -your own idea</li>
+      <li>This is also a donation to CREED and therefore there will be no refunds if you change your mind and wish not to participate or vote</li>
+      <li>If you choose not to vote or don't vote for any reason there are no refunds</li>
+      <li>Voting will be conducted in two rounds: The first round will select the 8 business plans with the highest number of votes, thenext and final round will select the top 3 for first, second and third place. Should there be a tie for any of the places the prize money will be split between the tying contestants. People who submit business plans and or purchase votes will be allowed to cast their votes in both rounds</li>
+      <li>By agreeing to this you agree to allow CREED rights to photograph the events and use the information and photographs to publicize CREED and its mission on its webste which will become a copyright of CREED; all rights reserved. You retain ownership of the business idea and may mention winning the CREED Business Plan Contest and money or award in your reume</li>
+      <li>All decisions are final and may not be appealed</li>
+    </ul>
 
-      <br />
+    <br />
 
-      <%= button_to "I agree", new_user_url, :method => :get %>
-    
-    </div>
+    <%= button_to "I agree", new_user_url, :method => :get %>
 
   </div>
-  
+
 </div>
+
+
+

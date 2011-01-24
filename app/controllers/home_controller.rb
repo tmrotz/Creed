@@ -3,6 +3,7 @@ class HomeController < Application
   before_filter :authorize, :except => [:index, :register, :login]
 
   def index
+    render :layout => "homepage"
   end
 
   def register
@@ -18,7 +19,7 @@ class HomeController < Application
       redirect_to users_url
     else
       flash[:notice] = "username/password did not match"
-      redirect_to register_url
+      redirect_to :root
     end
   end
 

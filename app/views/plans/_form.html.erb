@@ -1,4 +1,12 @@
 
+
+<script type="text/javascript" >
+   $(document).ready(function() {
+      $("textarea").markItUp(mySettings);
+   });
+</script>
+
+
 <%= form_for(@plan) do |f| %>
   <% if @plan.errors.any? %>
 
@@ -25,32 +33,32 @@
   </div>
 </div>
 
-<div style="height:14ex;clear:both;margin: 0 0 3ex 3%;">
+<div style="margin: 0 0 0 3%;">
   <%= f.label :target_title %><br />
-  <%= f.text_area :target_title, :rows => 3, :cols => 86 %>
+  <%= f.text_area :target_title%>
 </div>
 
-<div style="height:53ex;clear:both;margin: 0 0 3ex 0;">
-  <div style="float:left;margin: 0 0 0 3%;">
-    <%= f.label :target_body %><br />
-    <%= f.text_area :target_body %>
-  </div>
-  <div style="float:left;margin-left: 3%;">
-    <%= f.label :financial %><br />
-    <%= f.text_area :financial %>
-  </div>
+<div style="margin: 0 0 0 3%;">
+  <%= f.label :target_body %><br />
+  <%= f.text_area :target_body %>
 </div>
 
-<div style="height:53ex;clear:both;margin: 0 0 3ex 0;">
-  <div style="float:left;margin-left: 3%;">
-    <%= f.label :status %><br />
-    <%= f.text_area :status %>
-  </div>
-  <div style="float:left;margin-left: 3%;">
-    <%= f.label :action %><br />
-    <%= f.text_area :action %>
-  </div>
+<div style="margin: 0 0 0 3%;">
+  <%= f.label :financial %><br />
+  <%= f.text_area :financial %>
 </div>
+
+<div style="margin: 0 0 0 3%;">
+  <%= f.label :status %><br />
+  <%= f.text_area :status %>
+</div>
+
+<div style="margin: 0 0 0 3%;">
+  <%= f.label :action %><br />
+  <%= f.text_area :action %>
+</div>
+
+<br />
 
 <div style="margin-left: 3ex;clear:both;">
   <%= f.submit @button_text %>

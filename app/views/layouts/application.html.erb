@@ -2,9 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" >
   
   <head>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag "application.css" %>
+
+    <%= javascript_include_tag "jquery.js" %>
+
+    <script type="text/javascript" src="../markitup/jquery.markitup.js"></script>
+    <script type="text/javascript" src="../markitup/sets/html/set.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../markitup/skins/markitup/style.css" />
+    <link rel="stylesheet" type="text/css" href="../markitup/sets/html/style.css" />
+    
+    
+
+    
     <%= csrf_meta_tag %>
+    
     <title>CREED Business Plans</title>
 
     <%= favicon_link_tag %>
@@ -23,46 +35,11 @@
         <div id="rt-header">
           <div class="rt-grid-3 rt-alpha">
             <div class="rt-block">
-              <a href="/" id="rt-logo"></a>
+              <div id="rt-logo"></div>
             </div>
           </div>
           <div class="rt-grid-9 rt-omega">
-            <ul class="menutop level1" >
-
-              <li class="<% if controller.controller_name == 'home' && controller.action_name == 'index' %>active<% else %><% end %>" >
-                <a class="orphan item" href="/"  >
-                  <span>CREED Home</span>
-                </a>
-              </li>
-              <li class="<% if controller.controller_name == 'users' %>active<% else %><% end %>" >
-                <a class="orphan item subtext" href="/users"  >
-                  <span>Users<em>you central</em></span>
-                </a>
-              </li>
-              <li class="<% if controller.controller_name == 'plans' %>active<% else %><% end %>" >
-                <a class="orphan item subtext" href="/plans"  >
-                  <span>Plans<em>check them out</em></span>
-                </a>
-              </li>
-              <li class="<% if controller.action_name == 'register' %>active<% else %><% end %>" >
-                <a class="orphan item subtext" href="/register"  >
-                  <span>Register<em>get started today</em></span>
-                </a>
-              </li>
-              <% if logged_in? %>
-                <li style="float:right; margin-top: 3%; margin-right: 3%; height: 30px;">
-                  <%= link_to "Logout", logout_url %>
-                </li>
-                <li style="color:#285B90;font-size: 1.2em;line-height: 1.8em;float:right; margin-top: 3%; margin-right: 3%; height: 30px;">
-                  <%=h "Welcome, #{current_user.username}" %>
-                </li>
-              <% else %>
-                <li style="float:right; margin-top: 3%; margin-right: 3%; height: 30px;">
-                  <%= link_to "Login", register_url %>
-                </li>
-              <% end %>
-              
-            </ul>
+            <%= render 'home/topbar' %>
           </div>
           <div class="clear"></div>
         </div>
@@ -73,50 +50,34 @@
         <div id="rt-main-divider"></div>
         <div id="rt-main-surround">
 
-
           <!-- rt-breadcrumbs -->
-          <!--<div id="rt-breadcrumbs">
+          <div id="rt-breadcrumbs">
             <div class="rt-breadcrumb-surround">
-              <a href="/" id="breadcrumbs-home"></a>
+              <%#*<a href="/" id="breadcrumbs-home"></a>%>
               <span class="breadcrumbs pathway">
               </span>
             </div>
             <div class="clear"></div>
-          </div>-->
+          </div>
 
+          <% if flash[:notice] %>
+            <p class="notice"><%=h flash[:notice] %></p>
+          <% end %>
 
           <div id="rt-feature">
             <div class="rt-grid-12 rt-alpha rt-omega">
               <div class="ribbon1">
                 <div class="rt-block">
                   <div class="module-content">
-
+                    
                     <%= yield %>
-          
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-
-
-          <!-- rt-main  -->
-          <div id="rt-main" class="mb12">
-            <div class="rt-main-inner">
-              <div class="rt-grid-12 ">
-                <div class="rt-block">
-                  <div id="rt-mainbody">
-                    <div class="rt-joomla ">
-                      <div class="rt-blog">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="clear"></div>
-            </div>
-          </div>
 
           <!-- rt-footer A Menu -->
           <%#*<div id="rt-footer">%>
@@ -135,8 +96,10 @@
                 <%#*</div>%>
               <%#*</div>%>
             <%#*</div>%>
-            <%#*<div class="clear"></div>%>
+            <div class="clear"></div>
           <%#*</div>%>
+
+
         </div>
 
 

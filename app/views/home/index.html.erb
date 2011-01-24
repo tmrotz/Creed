@@ -1,79 +1,137 @@
 
-<div class="module-title"><h2 class="title"><span>Welcome to CREED</span></h2></div>
-<div class="module-inner">
-  
-  <%#*<div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">%>
-    <%#*<div style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-size: 76%; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: #ffffff; line-height: 1.3em; margin: 8px;">%>
-      <%#*<h1 style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; color: #666666; text-align: left;"><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;">A Message</span></h1>%>
-      <%#*<p><span style="color: #333333; font-family: Tahoma, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 9px;"><br /></span></p>%>
-    <%#*</div>%>
-  <%#*</div>%>
-  <%#*<ul style="padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 15px; outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; list-style-image: none; margin: 0px; border: 0px initial initial;">%>
-    <%#*<li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">%>
-      <%#*<p><a href="/" title="Bullet Point" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Bullet Point</span></span></a></p>%>
-    <%#*</li>%>
-    <%#*<li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">%>
-      <%#*<p><a href="/" title="Link 1" style="outline-width: initial; outline-style: none; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 1</span></span></a></p>%>
-    <%#*</li>%>
-    <%#*<li style="outline-width: 0px; outline-style: initial; outline-color: initial; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; padding: 0px; margin: 0px; border: 0px initial initial;">%>
-      <%#*<p><a href="/" target="_self" title="Link 1"><span style="outline-style: none; background-color: transparent; padding: 0px; margin: 0px;"><span style="font-family: Helvetica, Arial, FreeSans, sans-serif; color: #666666;"><span style="line-height: 20px;">Link 2</span></span></span></a></p>%>
-    <%#*</li>%>
-  <%#*</ul>%>
 
-  <% if flash[:notice] %>
-    <p class="notice"><%=h flash[:notice] %></p>
-  <% end %>
-    
-  <br />
-
-  <div style="margin: 0 20em 0 7em;">
-    <h2>Write a Business Plan, Get $5000</h2>
-    <p>
-      CREED, a nonprofit corporation, is launching a crowdfunding intitiative to
-      help kick-start small business in the U.S. Here's the quick overview of the
-      contest:
-    </p>
-    <p>
-      Part I
-      <ul>
-        <li>Pledge a donation, minimum $50</li>
-        <li>Each donor receives one vote for every $50; and may buy additional votes optionally for $10 each (these donations will help fund CREED’s mission)</li>
-        <li>Encourage friends and family to become donors by sending this to everyone you know</li>
-      </ul>
-      Part II
-      <ul>
-        <li>Write a very concise business plan/proposal on one page – see The One-Page Proposal book as a guide</li>
-        <li>Submit the one-page proposal via our secure web portal under the Members Only tab (Submission of One-Page Proposals will start after the $5,000 is raised)</li>
-      </ul>
-      Part II
-      <ul>
-        <li>Cast your vote(s) to select the best plan </li>
-        <li>Winner receives $5,000 in start-up funding, no strings attached, if your plan gets the most votes</li>
-      </ul>
-    </p>
-
-    <br />
-
-    <h2>Why Crowdsourcing</h2>
-    <p>
-      This recession has been the worst since the Great Depression and many individuals are feeling insecure about the future of their jobs or the lasting power of their small businesses. We at CREED believe that, in spite of the current economic climate, we still live in the greatest, most creative country in the world—a place where good ideas deserve a chance. That is why we are launching our own crowdsourcing initiative.
-    </p>
-    <p>
-      Crowdsourcing programs have been run successfully by two organizations in Ireland, Outvesting and iQ Prize. Outvesting has raised 5,000 euros to give to an entrepreneur who has the most compelling business plan among those entered. iQ Prize has already given away 10,000 euros to fund a start-up. Both efforts were funded by many small donations, raised via word-of-mouth and grassroots marketing. Both were intended to jumpstart the economy and put some fire back into Ireland’s small business segment. CREED wants to bring this energy and excitement for small business to the U.S.
-    </p>
-
-    <br />
-
-    <h2>How to participate</h2>
-    <p>
-      You can participate as a donor, or as a contest entrant and donor. CREED is currently accepting pledges of $50 or more. Once the cumulative pledge amount reaches $5000, we will publish the rules for submitting your business plan and begin accepting business plan entries.
-    </p>
-    <p>
-      <i>Pledge funds now?</i> Click here. Remember, your pledge earns you votes on who should win the start-up capital. You get one vote for the first $50 pledged and one additional vote for every additional $10 donation. An $80 pledge, for example, earns you four votes.
-    </p>
-    <p>If you’ve got a great idea and you can write a compelling business proposal, you could be the recipient of CREED’s $5,000 crowdfunding contest! Make your pledge today and start writing your plan.</p>
+<!-- rt-breadcrumbs -->
+<div id="rt-breadcrumbs">
+  <div class="rt-breadcrumb-surround">
+    <%#*<a href="/" id="breadcrumbs-home"></a>%>
+    <span class="breadcrumbs pathway">
+    </span>
   </div>
-
-
+  <div class="clear"></div>
 </div>
 
+<% if flash[:notice] %>
+  <p class="notice"><%=h flash[:notice] %></p>
+<% end %>
+
+<div id="rt-main" class="mb9-sa3">
+
+  <div class="rt-main-inner">
+    <div class="rt-grid-9">
+      <div class="rt-block">
+        <div id="rt-mainbody">
+          <div class="rt-joomla">
+            <div class="rt-blog">
+              <div class="rt-leading-articles">
+
+
+                <div class="rt-article">
+                  <div class="rt-article-bg">
+                    <div class="rt-headline">
+                      <h1 class="rt-article-title" style="visibility: visible;">
+                        <span>Write a Business Plan, Get $5000</span>
+                      </h1>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="rt-article-content">
+                      <div class="rt-articleinfo">
+                        <p>
+                          CREED, a nonprofit corporation, is launching a crowdfunding intitiative to
+                          help kick-start small business in the U.S. Here's the quick overview of the
+                          contest:
+                        </p>
+                        <p>
+                          Part I: Starting February 1st
+                          <ul>
+                            <li>Entry Fee: $50 donation</li>
+                            <li>Each donor who submits a one-page business plan receives one vote with their $50 entry fee; After the entry fee is paid, additional votes are $10 each (votes increase your chances of winning and will also help fund CREED's mission) Encourage friends and family to become voters by sending this to everyone you know, for each $10 donation they may have one vote or they may have 12 votes for 1 $100 donation.</li>
+                          </ul>
+                        </p>
+                        <br />
+                        <p>
+                          Part II: February 1st - March 15th
+                          <ul>
+                            <li>Write a very concise business plan/proposal on one page – see The <a href="http://creedinc.org/CatalogueRetrieve.aspx?CatalogueID=88">One-Page Proposal Book</a> as a guide</li>
+                            <li>Submit the one-page proposal via our secure web portal under the Members Only tab (Submission of One-Page Proposals will start after the $5,000 is raised)</li>
+                          </ul>
+                        </p>
+                        <br />
+                        <p>
+                          Part III: March 15th - March 31st
+                          <ul>
+                            <li>Cast your vote(s) to select the best plan. There will be two rounds of voting - first round will select the top eight business plans, the second round will select the top three business plans.</li>
+                            <li>Winnings will be divided between the top three business plans with the most votes. In the following manner:</li>
+                            <ul>
+                              <li>Fist Place 50% of the capital raised</li>
+                              <li>Second Place 35% of the capital raised</li>
+                              <li>Third place 15% of the capital raised</li>
+                            </ul>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="rt-article">
+                  <div class="rt-article-bg">
+                    <div class="rt-headline">
+                      <h1 class="rt-article-title" style="visibility: visible;">
+                        <span>Why Crowdsourcing?</span>
+                      </h1>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="rt-article-content">
+                      <div class="rt-articleinfo">
+                        <p>
+                          This recession has been the worst since the Great Depression and many individuals are feeling insecure about the future of their jobs or the lasting power of their small businesses. We at CREED believe that, in spite of the current economic climate, we still live in the greatest, most creative country in the world—a place where good ideas deserve a chance. That is why we are launching our own crowdsourcing initiative.
+                        </p>
+                        <p>
+                          Crowdsourcing programs have been run successfully by two organizations in Ireland, Outvesting and iQ Prize. Outvesting has raised 5,000 euros to give to an entrepreneur who has the most compelling business plan among those entered. iQ Prize has already given away 10,000 euros to fund a start-up. Both efforts were funded by many small donations, raised via word-of-mouth and grassroots marketing. Both were intended to jumpstart the economy and put some fire back into Ireland’s small business segment. CREED wants to bring this energy and excitement for small business to the U.S.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <div class="rt-article">
+                  <div class="rt-article-bg">
+                    <div class="rt-headline">
+                      <h1 class="rt-article-title" style="visibility: visible;">
+                        <span>How to Participate</span>
+                      </h1>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="rt-article-content">
+                      <div class="rt-articleinfo">
+                        <p>
+                          You can participate as a donor, or as a contest entrant and donor. CREED is currently accepting pledges of $50 or more. The competition rules are published on the registration page. Anyone over 18 years old can participate, by either purchasing votes. Contestancts must be enrolled in a college or university.
+                        </p>
+                        <p>
+                          <i>Pledge funds now?</i> <a href="">Click here</a>. Remember, your pledge earns you votes on who should win the start-up capital. If you've got a great idea and you can write a comelling business proposal, you could be the recipient of CREED's $5,000 crowdfunding contest! Register today and start writing your plan. Business plans must be submitted by March 15th 2011. After that date, the voting will start!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rt-grid-3">
+      <div class="rt-sidebar-a">
+        <div class="rt-block">
+          <div class="module-content">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
