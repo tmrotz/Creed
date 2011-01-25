@@ -1,16 +1,15 @@
 
-<%= form_for @user, :method => :post, :html => {:style => "margin-top:2%;margin-left:3%;"} do |f| %>
+<%= form_for @user, :method => :post, :html => {:style => "margin:2% 0 0 3%;"} do |f| %>
 
 <% if @user.errors.any? %>
-<div id="error_explanation">
-  <h2 style="color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div id="error_explanation" style="margin:0 0 2em 0;color:red;">
+    <h2><%= pluralize(@user.errors.count, "Error") %> prohibited this account from being created:</h2>
 
-  <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-  
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
 </div>
 <% end %>
 

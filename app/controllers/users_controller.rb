@@ -6,7 +6,7 @@ class UsersController < Application
   def correct_user?
     if current_user.id.to_i != params[:id].to_i
       Mailtime.hacker(current_user, "Access another user's account").deliver
-      flash[:notice] = "You account has been flagged.[Error code: 78]"
+      flash[:notice] = "YOUR ACCOUNT HAS BEEN FLAGGED. [ERROR CODE: 78]"
       redirect_to users_url
     end
   end
@@ -33,13 +33,11 @@ class UsersController < Application
     @user = User.new(params[:user])
 #    @user.paid = 'false'
 #    @user.votes = 0
-    
 
-    if @user.save
+    
+    if @user.save!
       Mailtime.welcome(@user).deliver
-      redirect_to(register_url, :notice => "User account created successfully")
-    else
-      render :action => "new"
+      redirect_to(:root, :notice => "YOUR ACCOUNT WAS SUCCESSFULLY CREATED.")
     end
 
   end
@@ -49,7 +47,7 @@ class UsersController < Application
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to(users_url, :notice => 'User was successfully updated.')
+      redirect_to(users_url, :notice => 'YOUR ACCOUNT WAS UPDATED SUCCESSFULLY.')
     else
       render :action => "edit"
     end

@@ -18,7 +18,7 @@ class HomeController < Application
       session[:current_user_id] = user.id
       redirect_to users_url
     else
-      flash[:notice] = "username/password did not match"
+      flash[:notice] = "USERNAME/PASSWORD DID NOT MATCH."
       redirect_to :root
     end
   end

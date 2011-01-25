@@ -6,7 +6,7 @@ class Application < ActionController::Base
 
   def authorize
     unless logged_in?
-      flash[:notice] = "Please log in."
+      flash[:notice] = "PLEASE LOG IN."
       redirect_to :root
     end
   end

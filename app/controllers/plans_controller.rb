@@ -8,14 +8,14 @@ class PlansController < Application
 
   def bought_plan?
     if current_user.paid == 'false'
-      flash[:notice] = "You must purchase a business plan."
+      flash[:notice] = "YOU MUST PURCHASE A BUSINESS PLAN."
       redirect_to users_url
     end
   end
 
   def submitted_plan?
     if current_user.paid == 'submitted'
-      flash[:notice] = "You have already submitted a business plan."
+      flash[:notice] = "YOU HAVE ALREADY SUBMITTED A BUSINESS PLAN."
       redirect_to users_url
     end
   end
@@ -23,7 +23,7 @@ class PlansController < Application
   def your_plan?
     if current_user.plan.id.to_i != params[:id].to_i
       Mailtime.hacker(current_user, "Change another user's plan").deliver
-      flash[:notice] = "Your account has been flagged.[Error code: 19]"
+      flash[:notice] = "YOUR ACCOUNT HAS BEEN FLAGGED. [ERROR CODE: 19]"
       redirect_to plans_url
     end
   end
@@ -48,10 +48,10 @@ class PlansController < Application
       num_votes -= 1
       User.update_all({:votes => num_votes}, {:id => current_user.id})
       
-      flash[:notice] = "You have #{current_user.votes} votes left."
+      flash[:notice] = "YOU HAVE #{current_user.votes} VOTES LEFT."
       redirect_to users_url
     else
-      flash[:notice] = "Purchase more votes."
+      flash[:notice] = "PURCHASE MORE VOTES."
       redirect_to users_url
     end
   end
@@ -95,13 +95,11 @@ class PlansController < Application
   def create
     @plan = Plan.new(params[:plan])
 
-    if @plan.save
+    if @plan.save!
       User.update_all({:paid => "submitted"}, {:id => current_user.id})
       current_user.plan = @plan
       current_user.plan.save
-      redirect_to(@plan, :notice => 'Plan was successfully created.')
-    else
-      render :action => "new"
+      redirect_to(@plan, :notice => 'BUSINESS PLAN WAS SUCCESSFULLY CREATED.')
     end
   end
 
@@ -110,7 +108,7 @@ class PlansController < Application
     @plan = Plan.find(params[:id])
 
     if @plan.update_attributes(params[:plan])
-      redirect_to(@plan, :notice => 'Plan was successfully updated.')
+      redirect_to(@plan, :notice => 'BUSINESS PLAN WAS SUCCESSFULLY UPDATED.')
     else
       render :action => "edit"
     end

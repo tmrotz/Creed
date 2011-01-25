@@ -11,7 +11,9 @@
 </div>
 
 <% if flash[:notice] %>
-  <p class="notice"><%=h flash[:notice] %></p>
+  <div style="margin: 2em 20em 0 2em;">
+    <p style="color:red;font-size:140%;"><strong><%= flash[:notice] %></strong></p>
+  </div>
 <% end %>
 
 <div id="rt-main" class="mb9-sa3">
