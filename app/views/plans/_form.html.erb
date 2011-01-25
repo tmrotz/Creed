@@ -2,9 +2,12 @@
 
 <script type="text/javascript" >
    $(document).ready(function() {
-      $("textarea").markItUp(mySettings);
+      $(".markItUp").markItUp(mySettings);
    });
 </script>
+
+
+
 
 
 <%= form_for(@plan) do |f| %>
@@ -33,29 +36,29 @@
   </div>
 </div>
 
-<div style="margin: 0 0 0 3%;">
+<div style="margin: 0 0 3ex 3%;">
   <%= f.label :target_title %><br />
-  <%= f.text_area :target_title%>
+  <%= f.text_area :target_title, :rows => 2, :cols => 86 %>
 </div>
 
 <div style="margin: 0 0 0 3%;">
   <%= f.label :target_body %><br />
-  <%= f.text_area :target_body %>
+  <%= f.text_area :target_body, :class => "markItUp" %>
 </div>
 
 <div style="margin: 0 0 0 3%;">
   <%= f.label :financial %><br />
-  <%= f.text_area :financial %>
+  <%= f.text_area :financial, :class => "markItUp" %>
 </div>
 
 <div style="margin: 0 0 0 3%;">
   <%= f.label :status %><br />
-  <%= f.text_area :status %>
+  <%= f.text_area :status, :class => "markItUp" %>
 </div>
 
 <div style="margin: 0 0 0 3%;">
   <%= f.label :action %><br />
-  <%= f.text_area :action %>
+  <%= f.text_area :action, :class => "markItUp" %>
 </div>
 
 <br />
