@@ -15,8 +15,8 @@ class AdminController < Application
 
   def index
     @plans = Plan.order("votes").reverse
-    @users = User.order("id")
-    @payments = PaymentNotification.order("payment_date")
+    @users = User.all
+    @payments = PaymentNotification.all
     render :layout => false
   end
 
