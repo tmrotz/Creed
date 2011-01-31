@@ -1,9 +1,21 @@
 class HomeController < Application
   
-  before_filter :authorize, :except => [:index, :register, :login]
+  before_filter :authorize, :except => [:index, :register, :login, :forgot]
 
   def index
     render :layout => "homepage"
+  end
+
+  def forgot
+    user = User.find_by_email(params[:email])
+    if user.nil?
+      flash[:notice] = "THAT EMAIL IS NOT IN OUR DATABASE. TRY AGAIN."
+      redirect_to :root
+    else
+      user.send_new_password
+      flash[:notice] = "AN EMAIL HAS BEEN SENT WITH A NEW PASSWORD."
+      redirect_to :root
+    end
   end
 
   def register

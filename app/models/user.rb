@@ -66,6 +66,23 @@ class User < ActiveRecord::Base
     OpenSSL::PKCS7::encrypt([OpenSSL::X509::Certificate.new(PAYPAL_CERT_PEM)], signed.to_der, OpenSSL::Cipher::Cipher::new("DES3"), OpenSSL::PKCS7::BINARY).to_s.gsub("\n", "")
   end
 
+  def send_new_password
+    new_pass = User.random_string(10)
+    self.password = self.password_confirmation = new_pass
+    self.save
+    Mailtime.forgot(self, new_pass).deliver
+  end
+
+  protected
+
+  def self.random_string(len)
+    # Generate a random password consisting of strings and digits
+    chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+    newpass = ""
+    1.upto(len) { |i| newpass << chars[rand(chars.size - 1)] }
+    return newpass
+  end
+
   private
 
   def password_non_blank

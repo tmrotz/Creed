@@ -1,5 +1,7 @@
 Creed::Application.routes.draw do
 
+  post "/forgot" => "home#forgot"
+
   #get "/activate" => "users#activate"
   
   get "/admin" => "admin#index"

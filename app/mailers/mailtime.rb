@@ -11,6 +11,13 @@ class Mailtime < ActionMailer::Base
           :subject => "Welcome")
   end
 
+  def forgot(user, new_pass)
+    @user = user
+    @new_pass = new_pass
+    mail( :to => user.email,
+          :subject => "creed-bplan.org Password")
+  end
+
   def hacker(user, subject_text)
     @user = user
     mail( :to => "tmrotz@gmail.com",

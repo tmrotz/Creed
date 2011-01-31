@@ -128,6 +128,7 @@
 
     <div class="rt-grid-3">
       <div class="rt-sidebar-a">
+        
         <div class="rt-block">
           <div class="module-content">
             <div class="module-title">
@@ -138,11 +139,62 @@
             <p>Already registered? Login below</p>
           </div>
         </div>
+
         <div class="rt-block" id="login">
           <div class="module-content">
-            <%= render 'form' %>
+            <div class="module-title">
+              <h2 class="title" style="visibility: visible;">Login</h2>
+            </div>
+
+            <div class="module-inner">
+            <%= form_tag login_url, :method => :post do %>
+              <fieldset>
+
+                <div style="margin: 0 0 3% 0;">
+                  <label for="username">Username</label><br />
+                  <%= text_field_tag :username, params[:username] %>
+                </div>
+
+                <div style="margin: 0 0 5% 0;">
+                  <label for="password">Password</label><br />
+                  <%= password_field_tag :password, params[:password] %>
+                </div>
+
+                <div>
+                  <%= submit_tag "Login" %>
+                </div>
+
+              </fieldset>
+            <% end %>
+            </div>
           </div>
         </div>
+
+        <div class="rt-block" id="forgot">
+          <div class="module-content">
+            <div class="module-title">
+              <h2 class="title" style="visibility: visible;">Forgot Your Password?</h2>
+            </div>
+
+            <div class="module-inner">
+            <%= form_tag forgot_url, :method => :post do %>
+              <fieldset>
+
+                <div style="margin: 0 0 5% 0;">
+                  <label for="email">Email</label><br />
+                  <%= text_field_tag :email, params[:email] %>
+                </div>
+                
+                <div>
+                  <%= submit_tag "Submit" %>
+                </div>
+                
+              </fieldset>
+            <% end %>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
     <div class="clear"></div>
