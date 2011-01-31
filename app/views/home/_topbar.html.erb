@@ -30,6 +30,10 @@
     <li style="color:#285B90;font-size: 1.2em;line-height: 1.8em;float:right; margin-top: 3%; margin-right: 3%; height: 30px;">
       <%=h "Welcome, #{current_user.username}" %>
     </li>
+  <% else %>
+    <li style="float:right; margin-top: 3%; margin-right: 3%; height: 30px;">
+      <a href="/#login">Login</a>
+    </li>
   <% end %>
 
 </ul>

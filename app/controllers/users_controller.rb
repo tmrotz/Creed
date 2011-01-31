@@ -11,9 +11,12 @@ class UsersController < Application
     end
   end
 
+#  def activate
+#
+#  end
+
   # GET /users
   def index
-    @users = User.all
   end
 
   # GET /users/new

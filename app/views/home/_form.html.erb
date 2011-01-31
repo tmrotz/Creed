@@ -1,15 +1,18 @@
 
-<h2>Login</h2>
+<div class="module-title">
+  <h2 class="title" style="visibility: visible;">Login</h2>
+</div>
 
+<div class="module-inner">
 <%= form_tag login_url, :method => :post do %>
   <fieldset>
 
-    <div style="margin: 0 0 2% 0;">
+    <div style="margin: 0 0 3% 0;">
       <label for="username">Username</label><br />
       <%= text_field_tag :username, params[:username] %>
     </div>
 
-    <div style="margin: 0 0 3% 0;">
+    <div style="margin: 0 0 5% 0;">
       <label for="password">Password</label><br />
       <%= password_field_tag :password, params[:password] %>
     </div>
@@ -20,4 +23,5 @@
 
   </fieldset>
 <% end %>
+</div>
 
