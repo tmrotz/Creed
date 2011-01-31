@@ -43,11 +43,10 @@
   <%= f.text_field :email %>
 </div>
 
-<div style="margin-bottom: 2ex;">
-  <%= f.label :school %><br />
-  <% schools_array = School.all.map {|school| [school.name, school.id]} %>
-  <%= f.select :school_id, options_for_select(schools_array) %>
-</div>
+<%#*<div style="margin-bottom: 2ex;">%>
+  <%#= f.label :school %><br />
+  <%#= f.select :school_id, options_from_collection_for_select(School.all, :id, :name) %>
+<%#*</div>%>
 
 <div>
   <%= f.submit @button_text %>
