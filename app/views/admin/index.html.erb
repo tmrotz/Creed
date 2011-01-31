@@ -1,24 +1,91 @@
 
 <br />
 
-<div>
+<div style="margin:5em 5em 5em 5em;">
   <table border="1" style="text-align:center;">
     <tr>
-      <td>User ID</td>
+      <td colspan="3">Plans</td>
+    </tr>
+    <tr>
       <td>Plan ID</td>
+      <td>User ID</td>
       <td>Plan Votes</td>
     </tr>
 
     <% unless @plans.nil? %>
     <% @plans.each do |plan| %>
     <tr>
-      <td><%= plan.user_id %></td>
       <td><%= plan.id %></td>
+      <td><%= plan.user_id %></td>
       <td><%= plan.votes %></td>
     </tr>
     <% end %>
     <% end %>
     
+  </table>
+</div>
+
+<div style="margin:5em 5em 5em 5em;">
+  <table border="1" style="text-align:center;">
+    <tr>
+      <td colspan="7">Users</td>
+    </tr>
+    <tr>
+      <td>User ID</td>
+      <td>First</td>
+      <td>Last</td>
+      <td>Username</td>
+      <td>Email</td>
+      <td>Paid</td>
+      <td>User Votes</td>
+    </tr>
+
+    <% unless @users.nil? %>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.first %></td>
+      <td><%= user.last %></td>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.paid %></td>
+      <td><%= user.votes %></td>
+    </tr>
+    <% end %>
+    <% end %>
+
+  </table>
+</div>
+
+<div style="margin:5em 5em 5em 5em;">
+  <table border="1" style="text-align:center;">
+    <tr>
+      <td colspan="7">Payments</td>
+    </tr>
+    <tr>
+      <td>PN ID</td>
+      <td>Status</td>
+      <td>TXN ID</td>
+      <td>Payer Email</td>
+      <td>Memo</td>
+      <td>Date</td>
+      <td>Qauntity</td>
+    </tr>
+
+    <% unless @payments.nil? %>
+    <% @payments.each do |p| %>
+    <tr>
+      <td><%= p.id %></td>
+      <td><%= p.status %></td>
+      <td><%= p.txn_id %></td>
+      <td><%= p.payer_email %></td>
+      <td><%= p.memo %></td>
+      <td><%= p.payment_date %></td>
+      <td><%= p.quantity %></td>
+    </tr>
+    <% end %>
+    <% end %>
+
   </table>
 </div>
 
