@@ -42,8 +42,7 @@ class User < ActiveRecord::Base
   def paypal_encrypted(amount, item_name, var_quan)
 
     values = {
-      #:business => 'wwbrock@creedinc.org',
-      :business => 'seller_1287031804_biz@gmail.com',
+      :business => 'wwbrock@creedinc.org',
       :cmd => '_xclick',
       :upload => 1,
       :return => 'http://www.creed-bplan.org',
