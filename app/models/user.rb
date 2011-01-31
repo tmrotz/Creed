@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
       :business => 'wwbrock@creedinc.org',
       :cmd => '_xclick',
       :upload => 1,
-      :return => 'http://www.creed-bplan.org',
+      :return => 'http://www.creed-bplan.org/users',
       :amount => amount,
       :item_name => item_name,
       :item_number => self.id,

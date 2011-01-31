@@ -22,13 +22,11 @@ class UsersController < Application
   # GET /users/new
   def new
     @user = User.new
-    @button_text = "Create Account"
   end
 
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    @button_text = "Confirm"
   end
 
   # POST /users
