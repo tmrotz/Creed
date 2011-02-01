@@ -14,7 +14,7 @@ class PaymentNotificationController < Application
       elsif (params[:item_name] == "12 Votes")
         num_votes += 12
         User.update_all({:votes => num_votes}, {:id => user_id})
-      elsif (params[:item_name] == "Business Plan")
+      elsif (params[:item_name] == "Entry Fee")
         num_votes += 1
         User.update_all({:votes => num_votes, :paid => "true"}, {:id => user_id})
       end
