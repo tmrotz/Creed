@@ -1,21 +1,27 @@
 class User < ActiveRecord::Base
 
   has_one :plan
-  belongs_to :school
 
   attr_accessor :password_confirmation
 
   validates_presence_of :first
   validates_presence_of :last
+  validates_presence_of :school
+  validates_presence_of :phone
   validates_presence_of :username
-  validates_presence_of :password
   validates_uniqueness_of :username
-  validates_confirmation_of :password
-  validates_length_of :password, :minimum => 6
+
+  validates_presence_of :password, :on => :create
+  validates_confirmation_of :password, :on => :create
+  validates_length_of :password, :minimum => 6, :on => :create
+
+  validates_presence_of :password, :on => :update, :if => :password_required?
+  validates_confirmation_of :password, :on => :update, :if => :password_required?
+  validates_length_of :password, :minimum => 6, :on => :update, :if => :password_required?
+  
   validates_format_of :email,
                       :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                      :message => 'email must be valid'
-  #validates_presence_of :school_id
+                      :message => 'must be valid'
 
   def password
     @password
@@ -74,6 +80,10 @@ class User < ActiveRecord::Base
   end
 
   protected
+
+  def password_required?
+    !password.blank?
+  end
 
   def self.random_string(len)
     # Generate a random password consisting of strings and digits

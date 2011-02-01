@@ -15,7 +15,27 @@
 <% end %>
 
 <div style="margin-bottom: 2ex;">
-  <%= f.label :user_password, 'New Password' %><br />
+  <%= f.label :first %><br />
+  <%= f.text_field :first %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :last %><br />
+  <%= f.text_field :last %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :school %><br />
+  <%= f.text_field :school %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :password, 'New Password' %><br />
   <%= f.password_field :password %>
 </div>
 

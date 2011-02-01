@@ -32,13 +32,13 @@ class UsersController < Application
   # POST /users
   def create
     @user = User.new(params[:user])
-#    @user.paid = 'false'
-#    @user.votes = 0
-
     
-    if @user.save!
+    if @user.save
+      session[:current_user_id] = @user.id
       Mailtime.welcome(@user).deliver
-      redirect_to(:root, :notice => "YOUR ACCOUNT WAS SUCCESSFULLY CREATED.")
+      redirect_to(users_url, :notice => "YOUR ACCOUNT WAS SUCCESSFULLY CREATED.")
+    else
+      render :action => "new"
     end
 
   end

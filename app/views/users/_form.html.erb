@@ -24,18 +24,8 @@
 </div>
 
 <div style="margin-bottom: 2ex;">
-  <%= f.label :username %><br />
-  <%= f.text_field :username %>
-</div>
-
-<div style="margin-bottom: 2ex;">
-  <%= f.label :user_password, 'Password' %><br />
-  <%= f.password_field :password %>
-</div>
-
-<div style="margin-bottom: 2ex;">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %>
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone %>
 </div>
 
 <div style="margin-bottom: 2ex;">
@@ -43,10 +33,25 @@
   <%= f.text_field :email %>
 </div>
 
-<%#*<div style="margin-bottom: 2ex;">%>
-  <%#= f.label :school %><br />
-  <%#= f.select :school_id, options_from_collection_for_select(School.all, :id, :name) %>
-<%#*</div>%>
+<div style="margin-bottom: 2ex;">
+  <%= f.label :school %><br />
+  <%= f.text_field :school %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :username %><br />
+  <%= f.text_field :username %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :password, 'Password' %><br />
+  <%= f.password_field :password %>
+</div>
+
+<div style="margin-bottom: 2ex;">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+</div>
 
 <div>
   <%= f.submit "Create Account"%>

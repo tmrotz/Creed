@@ -1,55 +1,62 @@
 
 <div class="module-title"><h2 class="title"><span><%= current_user.first %>'s Home</span></h2></div>
-<div class="module-inner" style="margin:0 0 15em 2em;">
-
-  <br />
+<div class="module-inner" style="margin:0 0 20% 0;">
+  
   <div style="float:left;margin:0 10em 0 0;">
+    
   <% if current_user.paid == "true" %>
-   <p>
-     Ready to submit your business plan?
-   </p>
-    <%= link_to "Submit Plan", new_plan_url %>
+    <div style="margin:1em 0 1em 0;">
+      <span style="color:red;">Ready to submit your business plan?</span><br/>
+      <%= link_to "Submit Plan", new_plan_url %>
+    </div>
 
-    <br /><br />
   <% elsif current_user.paid == "submitted" %>
-    <%= link_to "Edit Plan", edit_plan_url(current_user.plan) %>
 
-    <br /><br />
+    <div style="margin:1em 0 1em 0;">
+      <%= link_to "Edit Plan", edit_plan_url(current_user.plan) %>
+    </div>
+
   <% end %>
 
-    <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
-      <%= hidden_field_tag :cmd, "_s-xclick" %>
-      <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(10, "Votes", 1) %>
-      <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
-      <%= submit_tag "Purchase Votes" %>
+    <div style="margin:0 0 1em 0;">
+      <span style="color:red;">1 vote costs $10. Buy a vote and select the plan you want to vote for.</span>
+
+      <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
+        <%= hidden_field_tag :cmd, "_s-xclick" %>
+        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(10, "Votes", 1) %>
+        <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
+        <%= submit_tag "Purchase Votes" %>
+      <% end %>
+    </div>
+
+    <div style="margin:0 0 1em 0;">
+      <span style="color:red;">Buy 12 votes for only $100. Every vote helps support CREED's mission.</span>
+
+      <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
+        <%= hidden_field_tag :cmd, "_s-xclick" %>
+        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(100, "12 Votes", 0) %>
+        <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
+        <%= submit_tag "Purchase 12 Votes" %>
+      <% end %>
+    </div>
+
+    <% if current_user.paid == "false" %>
+    <div style="margin:0 0 1em 0;">
+      <span style="color:red;">Entry fee is $50, which includes 1 free vote.</span>
+
+      <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
+        <%= hidden_field_tag :cmd, "_s-xclick" %>
+        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Business Plan", 0) %>
+        <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
+        <%= submit_tag "Purchase Business Plan" %>
+      <% end %>
+    </div>
     <% end %>
-
-    <br />
-
-    <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
-      <%= hidden_field_tag :cmd, "_s-xclick" %>
-      <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(100, "12 Votes", 0) %>
-      <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
-      <%= submit_tag "Purchase 12 Votes" %>
-    <% end %>
-
-    <br />
-
-  <% if current_user.paid == "false" %>
-    <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
-      <%= hidden_field_tag :cmd, "_s-xclick" %>
-      <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Business Plan", 0) %>
-      <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
-      <%= submit_tag "Purchase Business Plan" %>
-    <% end %>
-
-    <br />
-  <% end %>
-
-    <%= link_to "Change Password", edit_user_url(current_user) %>
+    
+    <%= link_to "Edit Account Information", edit_user_url(current_user) %>
   </div>
 
-  <div style="float: left;">
+  <div style="float: left;margin:1em;">
     You have <%= pluralize(current_user.votes, "vote") %>
   </div>
 

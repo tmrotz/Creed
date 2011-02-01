@@ -95,11 +95,13 @@ class PlansController < Application
   def create
     @plan = Plan.new(params[:plan])
 
-    if @plan.save!
+    if @plan.save
       User.update_all({:paid => "submitted"}, {:id => current_user.id})
       current_user.plan = @plan
       current_user.plan.save
       redirect_to(@plan, :notice => 'BUSINESS PLAN WAS SUCCESSFULLY CREATED.')
+    else
+      render :action => 'edit'
     end
   end
 
