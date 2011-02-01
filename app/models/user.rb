@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
 
   attr_accessor :password_confirmation
 
-  validates_presence_of :first
-  validates_presence_of :last
-  validates_presence_of :school
-  validates_presence_of :phone
-  validates_presence_of :username
+  validates_presence_of :first, :last, :school, :phone, :username
+  
   validates_uniqueness_of :username
+  validates_uniqueness_of :email
+  validates_format_of :email,
+                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
+                      :message => 'must be valid'
 
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password, :on => :create
@@ -18,10 +19,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :update, :if => :password_required?
   validates_confirmation_of :password, :on => :update, :if => :password_required?
   validates_length_of :password, :minimum => 6, :on => :update, :if => :password_required?
-  
-  validates_format_of :email,
-                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                      :message => 'must be valid'
+
 
   def password
     @password
