@@ -2,19 +2,18 @@
 <div class="module-title"><h2 class="title"><span><%= current_user.first %>'s Home</span></h2></div>
 <div class="module-inner" style="margin:0 0 20% 0;">
   
-  <div style="float:left;margin:1em 10em 0 0;">
+  <div style="float:left;margin:0 0 0 0;width:45%;">
 
 
 
 
     
     <div style="margin:0 0 1em 0;">
-      <span style="color:red;">1 vote costs $10. Buy a vote and select the plan you want to vote for.</span>
+      <h4 style="color:red;">1 vote costs $10. Buy a vote and select the plan you want to vote for.</h4>
 
       <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
         <%= hidden_field_tag :cmd, "_s-xclick" %>
         <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(10, "Votes", 1) %>
-        <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
         <%= submit_tag "Purchase Votes" %>
       <% end %>
     </div>
@@ -25,12 +24,11 @@
 
 
     <div style="margin:0 0 1em 0;">
-      <span style="color:red;">Buy 12 votes for only $100. Every vote helps support CREED's mission.</span>
+      <h4 style="color:red;">Buy 12 votes for only $100. Every vote helps support CREED's mission.</h4>
 
       <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
         <%= hidden_field_tag :cmd, "_s-xclick" %>
         <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(100, "12 Votes", 0) %>
-        <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
         <%= submit_tag "Purchase 12 Votes" %>
       <% end %>
     </div>
@@ -40,14 +38,13 @@
 
     <% if current_user.paid == "false" && current_user.submitted == "true" %>
     <div style="margin:0 0 1em 0;">
-      <span style="color:red;">Before your business plan can be voted on, you must pay the entry fee of $50, which includes 1 free vote.</span>
+      <h4 style="color:red;">Before your business plan can be voted on, you must pay the entry fee of $50, which includes 1 free vote.</h4>
       
-    <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
-        <%= hidden_field_tag :cmd => "_s-xclick" %>
-        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Entry Fee", 0) %>
-        <%#*<%= image_submit_tag("buy_now_paypal.gif", :border => 0)%>
-        <%= submit_tag "Pay Entry Fee" %>
-      <% end %>
+        <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
+          <%= hidden_field_tag :cmd => "_s-xclick" %>
+          <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Entry Fee", 0) %>
+          <%= submit_tag "Pay Entry Fee" %>
+        <% end %>
       
     </div>
     <% end %>
@@ -60,23 +57,27 @@
 
 
   
-  <div style="float: left;margin:1em;">
+  <div style="float:left;margin:0 0 0 5em;">
     <div style="margin:0 0 1em 0;">
-      You have <%= pluralize(current_user.votes, "vote") %>
+      <h4>You have <%= pluralize(current_user.votes, "vote") %></h4>
+    </div>
+
+    <div style="margin:0 0 1em 0;">
+      <h4>Your business plan has <%= pluralize(current_user.plan.votes, "vote") %></h4>
     </div>
 
 
     <% if current_user.submitted == "false" %>
     <div style="margin:1em 0 1em 0;">
       <span style="color:red;">Ready to submit your business plan?</span><br/>
-      <%= button_to "Submit Plan", {:controller => :plans, :action => :new}, :method => :get %>
+      <%= button_to "Submit Business Plan", {:controller => :plans, :action => :new}, :method => :get %>
     </div>
     <% elsif current_user.submitted == "true" %>
     <div style="margin:2em 0 1em 0;">
-      <%= button_to "View Plan", {:controller => :plans, :action => :show, :id => current_user.plan.id}, :method => :get %>
+      <%= button_to "View Business Plan", {:controller => :plans, :action => :show, :id => current_user.plan.id}, :method => :get %>
     </div>
     <div style="margin:2em 0 1em 0;">
-      <%= button_to "Edit Plan", {:controller => :plans, :action => :edit, :id => current_user.plan.id}, :method => :get %>
+      <%= button_to "Edit Business Plan", {:controller => :plans, :action => :edit, :id => current_user.plan.id}, :method => :get %>
     </div>
     <% end %>
 

@@ -1,5 +1,7 @@
 
-<div class="module-inner" style="padding: 0 8em 0 8em; color: black; font-family:'Times New Romsn', Times, serif;">
+<%= javascript_include_tag :defaults %>
+
+<div class="module-inner" style="margin: 0 8em 0 8em; color: black; font-family:'Times New Roman', Times, serif;font-size:medium;">
 
   <h3 style="text-align: center;">
     <%=h @title %>
@@ -28,6 +30,10 @@
   <p>
     <b style="text-decoration:underline">ACTION:</b>
     <%=h @action.html_safe %>
+  </p>
+
+  <p class="rt-readon-surround" style="margin:5em 0 3em 38%;">
+    <%= link_to "Vote For This Plan", vote_url(:plan_id => @plan), :class => "readon", :style => "text-align:center;width:150px;", :confirm => "Are you sure?" %>
   </p>
 
 </div>
