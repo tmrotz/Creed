@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110131223252) do
+ActiveRecord::Schema.define(:version => 20110201101116) do
 
   create_table "payment_notifications", :force => true do |t|
     t.string   "status"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110131223252) do
     t.string   "email"
     t.string   "phone",           :limit => 18
     t.string   "school",          :limit => 60
+    t.string   "submitted",                     :default => "false"
   end
 
 end

@@ -1,5 +1,8 @@
 Creed::Application.routes.draw do
 
+  post "/parse" => "plans#parse"
+  get "/parse" => "plans#parse"
+
   post "/forgot" => "home#forgot"
 
   #get "/activate" => "users#activate"
@@ -18,7 +21,8 @@ Creed::Application.routes.draw do
 
   get "/logout" => "home#logout"
 
-  resources :users, :plans
+  resources :users
+  resources :plans
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

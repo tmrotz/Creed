@@ -10,7 +10,7 @@
 // Feel free to add more tags
 // ----------------------------------------------------------------------------
 mySettings = {
-	previewParserPath:	'', // path to your BBCode parser
+	previewParserPath:	'/parse', // path to your BBCode parser
 	markupSet: [
 		{name:'Bold', key:'B', openWith:'[b]', closeWith:'[/b]'},
 		{name:'Italic', key:'I', openWith:'[i]', closeWith:'[/i]'},

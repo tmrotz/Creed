@@ -1,20 +1,11 @@
 class PlansController < Application
 
   before_filter :authorize
-  before_filter :bought_plan?, :except => [:index, :show]
   before_filter :submitted_plan?, :only => [:new, :create]
   before_filter :your_plan?, :only => [:edit, :update]
-#  before_filter :your_schools_plan?, :only => [:show, :vote]
-
-  def bought_plan?
-    if current_user.paid == 'false'
-      flash[:notice] = "YOU MUST PURCHASE A BUSINESS PLAN."
-      redirect_to users_url
-    end
-  end
 
   def submitted_plan?
-    if current_user.paid == 'submitted'
+    if current_user.submitted == 'true'
       flash[:notice] = "YOU HAVE ALREADY SUBMITTED A BUSINESS PLAN."
       redirect_to users_url
     end
@@ -28,14 +19,9 @@ class PlansController < Application
     end
   end
 
-#  def your_schools_plan?
-#    plan = Plan.find(params[:id])
-#    if current_user.school_id.to_i != plan.user.school_id.to_i
-#     Mailtime.welcome(@user, "Access different school's plan").deliver
-#      flash[:notice] = "Your account has been flagged.[Error code: 23]"
-#      redirect_to plans_url
-#    end
-#  end
+  def parse
+    render :text => BBRuby.to_html(params[:data])
+  end
 
   def vote
     if current_user.votes > 0
@@ -48,7 +34,7 @@ class PlansController < Application
       num_votes -= 1
       User.update_all({:votes => num_votes}, {:id => current_user.id})
       
-      flash[:notice] = "YOU HAVE #{current_user.votes} VOTES LEFT."
+      flash[:notice] = "YOU VOTED FOR A BUSINESS PLAN."
       redirect_to users_url
     else
       flash[:notice] = "PURCHASE MORE VOTES."
@@ -58,12 +44,11 @@ class PlansController < Application
 
   # GET /plans
   def index
-#    users = User.find_all_by_school_id(current_user.school_id)
-#    @plans = Array.new
-#    users.each do |u|
-#      @plans << u.plan if u.plan != nil
-#    end
-    @plans = Plan.all
+    users = User.find_all_by_paid "true"
+    @plans = Array.new
+    users.each do |u|
+      @plans << u.plan
+    end
   end
 
   # GET /plans/1
@@ -96,7 +81,7 @@ class PlansController < Application
     @plan = Plan.new(params[:plan])
 
     if @plan.save
-      User.update_all({:paid => "submitted"}, {:id => current_user.id})
+      User.update_all({:submitted => "true"}, {:id => current_user.id})
       current_user.plan = @plan
       current_user.plan.save
       redirect_to(@plan, :notice => 'BUSINESS PLAN WAS SUCCESSFULLY CREATED.')
