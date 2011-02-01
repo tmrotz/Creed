@@ -28,7 +28,7 @@
 <div style="margin:5em 5em 5em 5em;">
   <table border="1" style="text-align:center;">
     <tr>
-      <td colspan="7">Users</td>
+      <td colspan="8">Users</td>
     </tr>
     <tr>
       <td>User ID</td>
@@ -37,6 +37,7 @@
       <td>Username</td>
       <td>Email</td>
       <td>Paid</td>
+      <td>Submitted</td>
       <td>User Votes</td>
     </tr>
 
@@ -49,6 +50,7 @@
       <td><%= user.username %></td>
       <td><%= user.email %></td>
       <td><%= user.paid %></td>
+      <td><%= user.submitted %></td>
       <td><%= user.votes %></td>
     </tr>
     <% end %>

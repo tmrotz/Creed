@@ -39,13 +39,11 @@
     <% if current_user.paid == "false" && current_user.submitted == "true" %>
     <div style="margin:0 0 1em 0;">
       <h4 style="color:red;">Before your business plan can be voted on, you must pay the entry fee of $50, which includes 1 free vote.</h4>
-      
-        <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
-          <%= hidden_field_tag :cmd => "_s-xclick" %>
-          <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Entry Fee", 0) %>
-          <%= submit_tag "Pay Entry Fee" %>
-        <% end %>
-      
+      <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
+        <%= hidden_field_tag :cmd, "_s-xclick" %>
+        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Entry Fee", 0) %>
+        <%= submit_tag "Pay Entry Fee" %>
+      <% end %>
     </div>
     <% end %>
 
