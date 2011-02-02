@@ -1,9 +1,13 @@
 class HomeController < Application
   
-  before_filter :authorize, :except => [:index, :register, :login, :forgot]
+  before_filter :authorize, :except => [:index, :register, :login, :forgot, :contact]
 
   def index
     render :layout => "homepage"
+  end
+
+  def contact
+    
   end
 
   def forgot

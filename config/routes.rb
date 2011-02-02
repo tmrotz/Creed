@@ -1,5 +1,7 @@
 Creed::Application.routes.draw do
 
+  get "/contact" => "home#contact"
+
   post "/parse" => "plans#parse"
   get "/parse" => "plans#parse"
 
