@@ -1,5 +1,5 @@
 
-<div class="module-title"><h2 class="title"><span><%= current_user.first %>'s Home</span></h2></div>
+<div class="module-title"><h2 class="title"><span><%= @user.first %>'s Home</span></h2></div>
 <div class="module-inner" style="margin:0 0 20% 0;">
   
   <div style="float:left;margin:0 0 0 0;width:45%;">
@@ -13,7 +13,7 @@
 
       <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
         <%= hidden_field_tag :cmd, "_s-xclick" %>
-        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(10, "Votes", 1) %>
+        <%= hidden_field_tag :encrypted, @user.paypal_encrypted(10, "Votes", 1) %>
         <%= submit_tag "Purchase Votes" %>
       <% end %>
     </div>
@@ -28,7 +28,7 @@
 
       <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
         <%= hidden_field_tag :cmd, "_s-xclick" %>
-        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(100, "12 Votes", 0) %>
+        <%= hidden_field_tag :encrypted, @user.paypal_encrypted(100, "12 Votes", 0) %>
         <%= submit_tag "Purchase 12 Votes" %>
       <% end %>
     </div>
@@ -36,12 +36,12 @@
 
 
 
-    <% if current_user.paid == "false" && current_user.submitted == "true" %>
+    <% if @user.paid == "false" && @user.submitted == "true" %>
     <div style="margin:0 0 1em 0;">
       <h4 style="color:red;">Before your business plan can be voted on, you must pay the entry fee of $50, which includes 1 free vote.</h4>
       <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
         <%= hidden_field_tag :cmd, "_s-xclick" %>
-        <%= hidden_field_tag :encrypted, current_user.paypal_encrypted(50, "Entry Fee", 0) %>
+        <%= hidden_field_tag :encrypted, @user.paypal_encrypted(50, "Entry Fee", 0) %>
         <%= submit_tag "Pay Entry Fee" %>
       <% end %>
     </div>
@@ -57,25 +57,27 @@
   
   <div style="float:left;margin:0 0 0 5em;">
     <div style="margin:0 0 1em 0;">
-      <h4>You have <%= pluralize(current_user.votes, "vote") %></h4>
+      <h4>You have <%= pluralize(@user.votes, "vote") %></h4>
     </div>
 
+    <% unless @user.plan.nil? %>
     <div style="margin:0 0 1em 0;">
-      <h4>Your business plan has <%= pluralize(current_user.plan.votes, "vote") %></h4>
+      <h4>Your business plan has <%= pluralize(@user.plan.votes, "vote") %></h4>
     </div>
+    <% end %>
 
 
-    <% if current_user.submitted == "false" %>
+    <% if @user.submitted == "false" %>
     <div style="margin:1em 0 1em 0;">
       <span style="color:red;">Ready to submit your business plan?</span><br/>
       <%= button_to "Submit Business Plan", {:controller => :plans, :action => :new}, :method => :get %>
     </div>
-    <% elsif current_user.submitted == "true" %>
+    <% elsif @user.submitted == "true" %>
     <div style="margin:2em 0 1em 0;">
-      <%= button_to "View Business Plan", {:controller => :plans, :action => :show, :id => current_user.plan.id}, :method => :get %>
+      <%= button_to "View Business Plan", {:controller => :plans, :action => :show, :id => @user.plan.id}, :method => :get %>
     </div>
     <div style="margin:2em 0 1em 0;">
-      <%= button_to "Edit Business Plan", {:controller => :plans, :action => :edit, :id => current_user.plan.id}, :method => :get %>
+      <%= button_to "Edit Business Plan", {:controller => :plans, :action => :edit, :id => @user.plan.id}, :method => :get %>
     </div>
     <% end %>
 

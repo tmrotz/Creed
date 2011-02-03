@@ -17,6 +17,7 @@ class UsersController < Application
 
   # GET /users
   def index
+    @user = current_user
   end
 
   # GET /users/new
