@@ -9,7 +9,7 @@ Creed::Application.routes.draw do
 
   #get "/activate" => "users#activate"
   
-  get "/admin" => "admin#index"
+  get "/aorfngbhvismr" => "admin#index"
 
   get "/vote" => "plans#vote"
 
