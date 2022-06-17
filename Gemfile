@@ -8,7 +8,7 @@ group :development do
    gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.2.17'
 
 gem 'bb-ruby'
 
